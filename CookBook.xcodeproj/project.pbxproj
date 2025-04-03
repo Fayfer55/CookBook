@@ -10,8 +10,9 @@
 		C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DDBC22D9DBE0200460522 /* AppDelegate.swift */; };
 		C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C50DDBC42D9DBE0200460522 /* CookBook.xcdatamodeld */; };
 		C50DDBCC2D9DBE0200460522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */; };
-		C50DDBCD2D9DBE0200460522 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DDBC72D9DBE0200460522 /* ViewController.swift */; };
 		C50DDBCE2D9DBE0200460522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50DDBC32D9DBE0200460522 /* Assets.xcassets */; };
+		C50DDBD22D9E685F00460522 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C50DDBD12D9E685F00460522 /* SnapKit */; };
+		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +37,11 @@
 		C50DDBC32D9DBE0200460522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C50DDBC52D9DBE0200460522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C50DDBC72D9DBE0200460522 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C50DDBC92D9DBE0200460522 /* CookBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookBook.xcdatamodel; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDirectionalEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -54,6 +55,16 @@
 			path = CookBookUITests;
 			sourceTree = "<group>";
 		};
+		C533B8E82D9EBCE700B7897E /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C533B8EB2D9EBE1700B7897E /* Modules */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Modules;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50DDBD22D9E685F00460522 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +96,14 @@
 		C50DDBC82D9DBE0200460522 /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				C533B8EB2D9EBE1700B7897E /* Modules */,
+				C533B8E02D9EBA0700B7897E /* Extensions */,
 				C50DDBC22D9DBE0200460522 /* AppDelegate.swift */,
 				C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */,
 				C50DDBC32D9DBE0200460522 /* Assets.xcassets */,
 				C50DDBC42D9DBE0200460522 /* CookBook.xcdatamodeld */,
 				C50DDBC52D9DBE0200460522 /* Info.plist */,
-				C50DDBC72D9DBE0200460522 /* ViewController.swift */,
+				C533B8E82D9EBCE700B7897E /* Views */,
 			);
 			path = CookBook;
 			sourceTree = "<group>";
@@ -114,6 +128,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C533B8E02D9EBA0700B7897E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,8 +151,13 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				C533B8E82D9EBCE700B7897E /* Views */,
+				C533B8EB2D9EBE1700B7897E /* Modules */,
+			);
 			name = CookBook;
 			packageProductDependencies = (
+				C50DDBD12D9E685F00460522 /* SnapKit */,
 			);
 			productName = CookBook;
 			productReference = C526353A2D92DC8C0026B907 /* CookBook.app */;
@@ -213,6 +240,9 @@
 			);
 			mainGroup = C52635312D92DC8C0026B907;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C50DDBD02D9E685F00460522 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C526353B2D92DC8C0026B907 /* Products */;
 			projectDirPath = "";
@@ -255,10 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,
 				C50DDBCC2D9DBE0200460522 /* SceneDelegate.swift in Sources */,
-				C50DDBCD2D9DBE0200460522 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +336,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -337,6 +368,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,7 +515,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7F5MV2U5PR;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.faifer.CookBookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,7 +538,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7F5MV2U5PR;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.faifer.CookBookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -528,6 +560,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7F5MV2U5PR;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.faifer.CookBookUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -549,6 +582,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7F5MV2U5PR;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.faifer.CookBookUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -603,6 +637,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C50DDBD02D9E685F00460522 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C50DDBD12D9E685F00460522 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C50DDBD02D9E685F00460522 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C50DDBC42D9DBE0200460522 /* CookBook.xcdatamodeld */ = {

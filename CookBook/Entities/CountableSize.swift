@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CountableSize: String, Codable {
+public enum CountableSize: String, Codable {
     case small
     case medium
     case large

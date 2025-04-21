@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum IngredientUnit: String, Codable {
+public enum IngredientUnit: String, Codable {
     case gram
     case teaspoon
     case tablespoon

@@ -15,10 +15,6 @@ final class OnboardingView: UIView {
         (image: UIImage(systemName: "cloud.bolt.rain")!, title: String("thirdTitle"), subtitle: String("thirdSubtitle"))
     ]
     
-    // MARK: - Properties
-    
-    
-    
     // MARK: - Private properties
     
     private var lastOffset: CGFloat = .zero

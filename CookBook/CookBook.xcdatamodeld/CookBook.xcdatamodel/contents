@@ -9,10 +9,13 @@
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
         <attribute name="categoryRaw" attributeType="String"/>
-        <attribute name="countableSizeRaw" optional="YES" attributeType="String"/>
         <attribute name="formRaw" attributeType="String" defaultValueString="piece"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="quantity" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="quantity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quantity"/>
+    </entity>
+    <entity name="Quantity" representedClassName="Quantity" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unitSymbol" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="subtitle" optional="YES" attributeType="String"/>

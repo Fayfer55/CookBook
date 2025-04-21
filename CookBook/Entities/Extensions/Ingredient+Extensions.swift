@@ -17,15 +17,6 @@ extension Ingredient {
         }
     }
     
-    public var countableSize: CountableSize? {
-        get {
-            guard let raw = countableSizeRaw else { return nil }
-            return CountableSize(rawValue: raw)
-        } set {
-            countableSizeRaw = newValue?.rawValue
-        }
-    }
-    
     public var category: IngredientCategory {
         get {
             guard let raw = categoryRaw else { return .fruits }

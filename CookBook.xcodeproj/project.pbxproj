@@ -12,8 +12,6 @@
 		C50DDBCC2D9DBE0200460522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */; };
 		C50DDBCE2D9DBE0200460522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50DDBC32D9DBE0200460522 /* Assets.xcassets */; };
 		C50DDBD22D9E685F00460522 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C50DDBD12D9E685F00460522 /* SnapKit */; };
-		C50E8B212DB640790072A2F6 /* IngredientUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B202DB640790072A2F6 /* IngredientUnit.swift */; };
-		C50E8B232DB640880072A2F6 /* CountableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B222DB640880072A2F6 /* CountableSize.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +38,6 @@
 		C50DDBC52D9DBE0200460522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C50DDBC92D9DBE0200460522 /* CookBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookBook.xcdatamodel; sourceTree = "<group>"; };
-		C50E8B202DB640790072A2F6 /* IngredientUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientUnit.swift; sourceTree = "<group>"; };
-		C50E8B222DB640880072A2F6 /* CountableSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountableSize.swift; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +45,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		C50E8B262DB641380072A2F6 /* Entities */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		C52635562D92DC900026B907 /* CookBookTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CookBookTests;
@@ -100,7 +101,7 @@
 		C50DDBC82D9DBE0200460522 /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
-				C50E8B1F2DB640690072A2F6 /* Entities */,
+				C50E8B262DB641380072A2F6 /* Entities */,
 				C533B8EB2D9EBE1700B7897E /* Modules */,
 				C533B8E02D9EBA0700B7897E /* Extensions */,
 				C50DDBC22D9DBE0200460522 /* AppDelegate.swift */,
@@ -111,15 +112,6 @@
 				C533B8E82D9EBCE700B7897E /* Views */,
 			);
 			path = CookBook;
-			sourceTree = "<group>";
-		};
-		C50E8B1F2DB640690072A2F6 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				C50E8B202DB640790072A2F6 /* IngredientUnit.swift */,
-				C50E8B222DB640880072A2F6 /* CountableSize.swift */,
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		C52635312D92DC8C0026B907 = {
@@ -166,6 +158,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				C50E8B262DB641380072A2F6 /* Entities */,
 				C533B8E82D9EBCE700B7897E /* Views */,
 				C533B8EB2D9EBE1700B7897E /* Modules */,
 			);
@@ -299,8 +292,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C50E8B232DB640880072A2F6 /* CountableSize.swift in Sources */,
-				C50E8B212DB640790072A2F6 /* IngredientUnit.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,

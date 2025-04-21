@@ -9,11 +9,11 @@ import Foundation
 
 extension Ingredient {
     
-    public var unit: IngredientUnit {
+    public var form: IngredientForm {
         get {
-            IngredientUnit(rawValue: unitRaw ?? "piece") ?? .piece
+            IngredientForm(rawValue: formRaw ?? "piece") ?? .piece
         } set {
-            unitRaw = newValue.rawValue
+            formRaw = newValue.rawValue
         }
     }
     
@@ -23,6 +23,15 @@ extension Ingredient {
             return CountableSize(rawValue: raw)
         } set {
             countableSizeRaw = newValue?.rawValue
+        }
+    }
+    
+    public var category: IngredientCategory {
+        get {
+            guard let raw = categoryRaw else { return .fruits }
+            return IngredientCategory(rawValue: raw) ?? .fruits
+        } set {
+            categoryRaw = newValue.rawValue
         }
     }
     

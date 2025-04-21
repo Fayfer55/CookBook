@@ -8,10 +8,11 @@
         <attribute name="title" attributeType="String"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryRaw" attributeType="String"/>
         <attribute name="countableSizeRaw" optional="YES" attributeType="String"/>
+        <attribute name="formRaw" attributeType="String" defaultValueString="piece"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="quantity" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="unitRaw" attributeType="String" defaultValueString="piece"/>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="subtitle" optional="YES" attributeType="String"/>

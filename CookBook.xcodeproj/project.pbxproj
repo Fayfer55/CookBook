@@ -13,6 +13,7 @@
 		C50DDBCE2D9DBE0200460522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50DDBC32D9DBE0200460522 /* Assets.xcassets */; };
 		C50DDBD22D9E685F00460522 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C50DDBD12D9E685F00460522 /* SnapKit */; };
 		C50E8B382DB66FEA0072A2F6 /* Ingredients.txt in Resources */ = {isa = PBXBuildFile; fileRef = C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */; };
+		C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,15 +41,32 @@
 		C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C50DDBC92D9DBE0200460522 /* CookBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookBook.xcdatamodel; sourceTree = "<group>"; };
 		C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ingredients.txt; sourceTree = "<group>"; };
+		C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Extensions.swift"; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDirectionalEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C50E8B722DB6B0750072A2F6 /* Exceptions for "Entities" folder in "CookBookTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Ingredient/Ingredient+CoreDataClass.swift",
+				"Ingredient/Ingredient+CoreDataProperties.swift",
+				"Quantity/Quantity+CoreDataClass.swift",
+				"Quantity/Quantity+CoreDataProperties.swift",
+			);
+			target = C52635522D92DC900026B907 /* CookBookTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C50E8B262DB641380072A2F6 /* Entities */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C50E8B722DB6B0750072A2F6 /* Exceptions for "Entities" folder in "CookBookTests" target */,
+			);
 			path = Entities;
 			sourceTree = "<group>";
 		};
@@ -149,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */,
+				C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,

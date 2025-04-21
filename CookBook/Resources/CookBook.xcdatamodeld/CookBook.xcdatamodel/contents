@@ -7,13 +7,13 @@
         <attribute name="tip" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
     </entity>
-    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
         <attribute name="categoryRaw" attributeType="String"/>
         <attribute name="formRaw" attributeType="String" defaultValueString="piece"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="quantity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quantity"/>
     </entity>
-    <entity name="Quantity" representedClassName="Quantity" syncable="YES" codeGenerationType="class">
+    <entity name="Quantity" representedClassName="Quantity" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="unitSymbol" optional="YES" attributeType="String"/>
     </entity>

@@ -3,176 +3,100 @@
         "name": "Salt",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 5,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Black pepper",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 5,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Sugar",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 10,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Garlic powder",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 5,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Onion powder",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 5,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Paprika",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 5,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Oregano",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 2,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Thyme",
         "category": "spicesSeasonings",
         "form": "mass",
-        "quantity": {
-            "amount": 2,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Tomato",
         "category": "vegetables",
         "form": "piece",
-        "quantity": {
-            "amount": 1
-        }
     },
     {
         "name": "Onion",
         "category": "vegetables",
         "form": "piece",
-        "quantity": {
-            "amount": 1
-        }
     },
     {
         "name": "Garlic",
         "category": "vegetables",
         "form": "piece",
-        "quantity": {
-            "amount": 1
-        }
     },
     {
         "name": "Milk",
         "category": "dairy",
         "form": "volume",
-        "quantity": {
-            "amount": 250,
-            "unitSymbol": "ml"
-        }
     },
     {
         "name": "Butter",
         "category": "dairy",
         "form": "mass",
-        "quantity": {
-            "amount": 50,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Cheese",
         "category": "dairy",
         "form": "mass",
-        "quantity": {
-            "amount": 50,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Egg",
         "category": "dairy",
         "form": "piece",
-        "quantity": {
-            "amount": 1
-        }
     },
     {
         "name": "Chicken",
         "category": "proteins",
         "form": "mass",
-        "quantity": {
-            "amount": 200,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Beef",
         "category": "proteins",
         "form": "mass",
-        "quantity": {
-            "amount": 200,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Rice",
         "category": "grains",
         "form": "mass",
-        "quantity": {
-            "amount": 100,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Pasta",
         "category": "pasta",
         "form": "mass",
-        "quantity": {
-            "amount": 100,
-            "unitSymbol": "g"
-        }
     },
     {
         "name": "Olive oil",
         "category": "oils",
         "form": "volume",
-        "quantity": {
-            "amount": 15,
-            "unitSymbol": "ml"
-        }
     }
 ]

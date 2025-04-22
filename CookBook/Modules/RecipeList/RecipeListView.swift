@@ -2,40 +2,44 @@
 //  RecipeListView.swift
 //  CookBook
 //
-//  Created by Kirill Faifer on 20.04.2025.
+//  Created by Kirill Faifer on 22.04.2025.
 //
 
-import SwiftUI
+import UIKit
 
-struct RecipeListView: View {
+final class RecipeListView: UIView {
     
-    let navigationController: UINavigationController
+    // MARK: - UI Elements
+
+    private lazy var tableView: UITableView = {
+        let view = UITableView()
+        return view
+    }()
     
-    @FetchRequest(sortDescriptors: []) private var recipes: FetchedResults<Recipe>
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupSubviews()
+        makeConstraints()
+    }
+    
+    @available(*, unavailable) // MARK: - TODO: - research implementaion
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Layout
     
-    var body: some View {
-        if recipes.isEmpty {
-            VStack {
-                Button {
-                    
-                } label: {
-                    Text("Create my first recipe")
-                        .font(.title3)
-                        .clipShape(.capsule)
-                }
-            }
-        } else {
-            List(recipes) { recipe in
-                let title = recipe.title ?? "no title"
-                Text(title)
-            }
-        }
+    private func setupSubviews() {
+        addSubview(tableView)
     }
     
-}
+    private func makeConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
 
-#Preview {
-    RecipeListView(navigationController: UINavigationController())
 }

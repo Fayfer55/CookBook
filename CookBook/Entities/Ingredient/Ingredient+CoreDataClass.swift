@@ -42,7 +42,7 @@ public class Ingredient: NSManagedObject, Codable {
         name = try container.decode(String.self, forKey: .name)
         category = try container.decode(IngredientCategory.self, forKey: .category)
         form = try container.decode(IngredientForm.self, forKey: .form)
-        quantity = try container.decode(Quantity.self, forKey: .quantity)
+        quantity = try container.decodeIfPresent(Quantity.self, forKey: .quantity)
     }
     
     // MARK: - Encoder
@@ -53,7 +53,7 @@ public class Ingredient: NSManagedObject, Codable {
         try container.encode(name, forKey: .name)
         try container.encode(category, forKey: .category)
         try container.encode(form, forKey: .form)
-        try container.encode(quantity, forKey: .quantity)
+        try container.encodeIfPresent(quantity, forKey: .quantity)
     }
     
 }

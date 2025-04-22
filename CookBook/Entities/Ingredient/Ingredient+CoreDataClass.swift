@@ -54,4 +54,13 @@ public class Ingredient: NSManagedObject, Codable {
         try container.encodeIfPresent(quantity, forKey: .quantity)
     }
     
+    // MARK: - Init
+    
+    public init(context: NSManagedObjectContext) {
+        guard let entity = NSEntityDescription.entity(forEntityName: Ingredient.entityName, in: context) else {
+            fatalError("Can't create Ingredient Entity from Core Data context")
+        }
+        super.init(entity: entity, insertInto: context)
+    }
+    
 }

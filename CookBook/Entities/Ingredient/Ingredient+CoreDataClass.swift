@@ -11,13 +11,11 @@ import CoreData
 
 @objc(Ingredient)
 public class Ingredient: NSManagedObject, Codable {
+    
+    static let entityName = "Ingredient"
 
     private enum CodingKeys: String, CodingKey {
         case name, category, form, quantity
-    }
-    
-    private enum Constants {
-        static let entityName = "Ingredient"
     }
     
     // MARK: - Decoder
@@ -29,7 +27,7 @@ public class Ingredient: NSManagedObject, Codable {
                 debugDescription: "Missing Core Data context"
             ))
         }
-        guard let entity = NSEntityDescription.entity(forEntityName: Ingredient.Constants.entityName, in: context) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: Ingredient.entityName, in: context) else {
             throw DecodingError.dataCorrupted(DecodingError.Context(
                 codingPath: decoder.codingPath,
                 debugDescription: "Can't create Ingredient Entity from Core Data context"

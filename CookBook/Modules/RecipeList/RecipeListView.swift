@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipeListView: ViewNavigatable {
+struct RecipeListView: View {
     
     let navigationController: UINavigationController
     

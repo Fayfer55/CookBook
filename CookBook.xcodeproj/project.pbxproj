@@ -15,6 +15,7 @@
 		C50E8B382DB66FEA0072A2F6 /* Ingredients.txt in Resources */ = {isa = PBXBuildFile; fileRef = C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */; };
 		C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */; };
 		C50E8B8E2DB6C6950072A2F6 /* View+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B8D2DB6C6950072A2F6 /* View+Environment.swift */; };
+		C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ingredients.txt; sourceTree = "<group>"; };
 		C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Extensions.swift"; sourceTree = "<group>"; };
 		C50E8B8D2DB6C6950072A2F6 /* View+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Environment.swift"; sourceTree = "<group>"; };
+		C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ClassIdentifiable.swift"; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,11 @@
 				C50E8B722DB6B0750072A2F6 /* Exceptions for "Entities" folder in "CookBookTests" target */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		C50E8BC12DB7C2580072A2F6 /* Protocols */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		C52635562D92DC900026B907 /* CookBookTests */ = {
@@ -123,6 +130,7 @@
 		C50DDBC82D9DBE0200460522 /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				C50E8BC12DB7C2580072A2F6 /* Protocols */,
 				C50E8B362DB66FD30072A2F6 /* Resources */,
 				C50E8B262DB641380072A2F6 /* Entities */,
 				C533B8EB2D9EBE1700B7897E /* Modules */,
@@ -162,6 +170,14 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
+		C50E8BBE2DB7C22F0072A2F6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		C52635312D92DC8C0026B907 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +201,7 @@
 		C533B8E02D9EBA0700B7897E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C50E8BBE2DB7C22F0072A2F6 /* UIKit */,
 				C50E8B8C2DB6C6860072A2F6 /* SwiftUI */,
 				C50E8B852DB6BAA80072A2F6 /* Foundation */,
 			);
@@ -208,6 +225,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C50E8B262DB641380072A2F6 /* Entities */,
+				C50E8BC12DB7C2580072A2F6 /* Protocols */,
 				C533B8E82D9EBCE700B7897E /* Views */,
 				C533B8EB2D9EBE1700B7897E /* Modules */,
 			);
@@ -345,6 +363,7 @@
 				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
+				C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */,
 				C50E8B8E2DB6C6950072A2F6 /* View+Environment.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,
 				C50DDBCC2D9DBE0200460522 /* SceneDelegate.swift in Sources */,

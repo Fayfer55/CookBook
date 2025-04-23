@@ -16,6 +16,8 @@
 		C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */; };
 		C50E8B8E2DB6C6950072A2F6 /* View+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B8D2DB6C6950072A2F6 /* View+Environment.swift */; };
 		C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */; };
+		C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */; };
+		C50E8C272DB8E7CB0072A2F6 /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Extensions.swift"; sourceTree = "<group>"; };
 		C50E8B8D2DB6C6950072A2F6 /* View+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Environment.swift"; sourceTree = "<group>"; };
 		C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ClassIdentifiable.swift"; sourceTree = "<group>"; };
+		C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Static.swift"; sourceTree = "<group>"; };
+		C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Init.swift"; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +162,8 @@
 			children = (
 				C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */,
 				C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */,
+				C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */,
+				C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -360,6 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50E8C272DB8E7CB0072A2F6 /* JSONDecoder+Init.swift in Sources */,
+				C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */,
 				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,

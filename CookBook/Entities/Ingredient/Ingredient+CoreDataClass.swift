@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 @objc(Ingredient)
-public class Ingredient: NSManagedObject, Codable {
+public final class Ingredient: NSManagedObject, Codable {
     
     static let entityName = "Ingredient"
 
@@ -18,22 +18,20 @@ public class Ingredient: NSManagedObject, Codable {
         case name, category, form, quantity
     }
     
-    // MARK: - Decoder
+}
 
-    public required init(from decoder: Decoder) throws {
+// MARK: - Decoder
+
+extension Ingredient {
+    
+    public convenience init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[.context] as? NSManagedObjectContext else {
             throw DecodingError.dataCorrupted(DecodingError.Context(
                 codingPath: decoder.codingPath,
                 debugDescription: "Missing Core Data context"
             ))
         }
-        guard let entity = NSEntityDescription.entity(forEntityName: Ingredient.entityName, in: context) else {
-            throw DecodingError.dataCorrupted(DecodingError.Context(
-                codingPath: decoder.codingPath,
-                debugDescription: "Can't create Ingredient Entity from Core Data context"
-            ))
-        }
-        super.init(entity: entity, insertInto: context)
+        self.init(context: context)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -43,7 +41,11 @@ public class Ingredient: NSManagedObject, Codable {
         quantity = try container.decodeIfPresent(Quantity.self, forKey: .quantity)
     }
     
-    // MARK: - Encoder
+}
+
+// MARK: - Encoder
+
+extension Ingredient {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -52,15 +54,6 @@ public class Ingredient: NSManagedObject, Codable {
         try container.encode(category, forKey: .category)
         try container.encode(form, forKey: .form)
         try container.encodeIfPresent(quantity, forKey: .quantity)
-    }
-    
-    // MARK: - Init
-    
-    public init(context: NSManagedObjectContext) {
-        guard let entity = NSEntityDescription.entity(forEntityName: Ingredient.entityName, in: context) else {
-            fatalError("Can't create Ingredient Entity from Core Data context")
-        }
-        super.init(entity: entity, insertInto: context)
     }
     
 }

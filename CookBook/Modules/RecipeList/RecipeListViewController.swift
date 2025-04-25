@@ -79,14 +79,8 @@ extension RecipeListViewController {
 extension RecipeListViewController: NSFetchedResultsControllerDelegate {
     
     nonisolated
-    func controller(
-        _ controller: NSFetchedResultsController<any NSFetchRequestResult>,
-        didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference
-    ) {
+    func controller(_ controller: NSFetchedResultsController<any NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
         let snapshot = snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
-        
-        print(snapshot.itemIdentifiers.count)
-        
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }

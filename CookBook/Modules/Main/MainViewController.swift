@@ -42,6 +42,7 @@ final class MainViewController: UIViewController {
 
         configureNavigationBar()
         setupSubviews()
+        recipesListViewController.performCoreDataRequest()
     }
     
     // MARK: - Layout

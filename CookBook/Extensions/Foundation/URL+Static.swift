@@ -9,6 +9,6 @@ import Foundation
 
 extension URL {
     
-    static let ingredients = Bundle.main.url(forResource: "Ingredients", withExtension: "txt")
+    static let ingredientsDirectory = Bundle.main.url(forResource: "Ingredients", withExtension: "txt")!
     
 }

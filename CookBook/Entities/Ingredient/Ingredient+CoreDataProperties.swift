@@ -13,7 +13,7 @@ import CoreData
 extension Ingredient {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Ingredient> {
-        NSFetchRequest<Ingredient>(entityName: "Ingredient")
+        NSFetchRequest<Ingredient>(entityName: Ingredient.entityName)
     }
 
     @NSManaged public var categoryRaw: String

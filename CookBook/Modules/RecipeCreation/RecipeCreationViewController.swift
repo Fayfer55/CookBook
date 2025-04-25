@@ -12,7 +12,7 @@ final class RecipeCreationViewController: UIViewController {
     
 //    let recipe = Recipe()
 
-    private let context: NSManagedObjectContext
+    private let backgroundContext: NSManagedObjectContext
     
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
@@ -22,8 +22,8 @@ final class RecipeCreationViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init(backgroundContext: NSManagedObjectContext) {
+        self.backgroundContext = backgroundContext
         super.init(nibName: nil, bundle: nil)
     }
     

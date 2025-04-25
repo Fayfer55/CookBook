@@ -15,7 +15,8 @@ final class IngredientCollectionViewController: UICollectionViewController {
     
     init(ingredients: Set<Ingredient>) {
         self.ingredients = ingredients
-        super.init(nibName: nil, bundle: nil)
+        let layout = UICollectionViewLayout()
+        super.init(collectionViewLayout: layout)
     }
     
     @available(*, unavailable)
@@ -40,17 +41,15 @@ final class IngredientCollectionViewController: UICollectionViewController {
 // MARK: UICollectionViewDataSource
 
 extension IngredientCollectionViewController {
-
     
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { ingredients.count }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: IngredientCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
-//        cell.configure
+        let orderedIngredients = ingredients.sorted { $0.name > $1.name }
+        cell.configure(with: orderedIngredients[indexPath.item])
         return cell
     }
     
@@ -60,7 +59,6 @@ extension IngredientCollectionViewController {
 
 extension IngredientCollectionViewController {
     
-
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {

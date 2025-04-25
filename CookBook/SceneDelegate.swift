@@ -51,6 +51,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: scene)
         let viewController = MainViewController(context: persistentContainer.viewContext)
         let navigationController = UINavigationController(rootViewController: viewController)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundColor = .systemBackground
+
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
         
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

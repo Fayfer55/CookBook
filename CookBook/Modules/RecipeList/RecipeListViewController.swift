@@ -49,7 +49,6 @@ final class RecipeListViewController: UITableViewController {
         super.viewDidLoad()
         
         setupParentView()
-        performCoreDataRequest()
     }
     
     // MARK: - Layout
@@ -58,7 +57,13 @@ final class RecipeListViewController: UITableViewController {
         tableView.register(cellType: RecipeListTableCell.self)
     }
     
-    private func performCoreDataRequest() {
+}
+
+// MARK: - Helpers
+
+extension RecipeListViewController {
+    
+    func performCoreDataRequest() {
         do {
             request.sortDescriptors = []
             try fetchedResultController.performFetch()
@@ -88,7 +93,3 @@ extension RecipeListViewController: NSFetchedResultsControllerDelegate {
     }
     
 }
-
-//#Preview {
-//    RecipeListViewController()
-//}

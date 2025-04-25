@@ -12,10 +12,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    var mainContext: NSManagedObjectContext {
-        persistentContainer.viewContext
-    }
-    
     var backgroundContext: NSManagedObjectContext {
         persistentContainer.newBackgroundContext()
     }

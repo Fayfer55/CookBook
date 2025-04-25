@@ -16,6 +16,7 @@ extension Recipe {
         return NSFetchRequest<Recipe>(entityName: "Recipe")
     }
 
+    @NSManaged public var id: UUID
     @NSManaged public var subtitle: String?
     @NSManaged public var title: String
     @NSManaged public var ingredients: NSSet

@@ -12,7 +12,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    let context: NSManagedObjectContext
+    private let context: NSManagedObjectContext
     
     // MARK: - UI Elements
     

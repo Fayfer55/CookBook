@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ObservableObject {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "CookBook")
+        container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 /*

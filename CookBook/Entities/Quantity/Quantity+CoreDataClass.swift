@@ -11,13 +11,11 @@ import CoreData
 
 @objc(Quantity)
 public final class Quantity: NSManagedObject, Codable {
+    
+    static let entityName = "Quantity"
 
     private enum CodingKeys: String, CodingKey {
         case amount, unitSymbol
-    }
-    
-    private enum Constants {
-        static let entityName = "Quantity"
     }
     
 }

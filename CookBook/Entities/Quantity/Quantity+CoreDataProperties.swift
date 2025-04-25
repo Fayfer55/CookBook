@@ -13,7 +13,7 @@ import CoreData
 extension Quantity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Quantity> {
-        NSFetchRequest<Quantity>(entityName: "Quantity")
+        NSFetchRequest<Quantity>(entityName: Quantity.entityName)
     }
 
     @NSManaged public var amount: Double

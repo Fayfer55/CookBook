@@ -76,9 +76,9 @@ extension RecipeListViewController {
 
 // MARK: - NSFetchedResultsControllerDelegate
 
-nonisolated
 extension RecipeListViewController: NSFetchedResultsControllerDelegate {
     
+    nonisolated
     func controller(
         _ controller: NSFetchedResultsController<any NSFetchRequestResult>,
         didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference

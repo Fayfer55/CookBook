@@ -79,7 +79,8 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        // TODO: - implement
+        let viewController = RecipeCreationViewController(context: context)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }

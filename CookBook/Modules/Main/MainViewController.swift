@@ -80,7 +80,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        let viewController = RecipeCreationViewController(backgroundContext: sceneDelegate.backgroundContext)
+        let viewController = RecipeCreationViewController(backgroundContext: UIApplication.backgroundContext)
         navigationController?.pushViewController(viewController, animated: true)
     }
 

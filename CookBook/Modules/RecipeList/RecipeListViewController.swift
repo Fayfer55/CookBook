@@ -26,7 +26,7 @@ final class RecipeListViewController: UITableViewController {
     
     private lazy var dataSource = UITableViewDiffableDataSource<Int, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, objectID in
         guard let recipe = try? self.context.existingObject(with: objectID) as? Recipe else {
-            fatalError("Managed object should exist")
+            fatalError("Recipe should exist") // TODO: - handle error
         }
         let cell: RecipeListTableCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configure(with: recipe.title, subtitle: recipe.subtitle)

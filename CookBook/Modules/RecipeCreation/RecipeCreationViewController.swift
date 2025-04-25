@@ -10,7 +10,7 @@ import CoreData
 
 final class RecipeCreationViewController: UIViewController {
     
-//    let recipe = Recipe()
+    let recipe: Recipe
 
     private let backgroundContext: NSManagedObjectContext
     
@@ -24,6 +24,7 @@ final class RecipeCreationViewController: UIViewController {
     
     init(backgroundContext: NSManagedObjectContext) {
         self.backgroundContext = backgroundContext
+        self.recipe = Recipe(context: backgroundContext)
         super.init(nibName: nil, bundle: nil)
     }
     

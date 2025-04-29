@@ -63,19 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ObservableObject {
 
 extension AppDelegate {
     
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        guard context.hasChanges else { return  }
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-    }
-    
     private func fetchIngredients() {
         do {
             let context = persistentContainer.newBackgroundContext()
@@ -86,7 +73,7 @@ extension AppDelegate {
             _ = try jsonDecoder.decode(Set<Ingredient>.self, from: data)
             
             try context.save()
-            saveContext()
+            UIApplication.saveContext()
         } catch {
             print(error)
         }

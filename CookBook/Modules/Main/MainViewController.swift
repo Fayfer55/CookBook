@@ -70,7 +70,8 @@ final class MainViewController: UIViewController {
     
     private func makeConstraints() {
         recipesListViewController.view.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
         emptyLabel.snp.makeConstraints {
             $0.center.equalToSuperview()

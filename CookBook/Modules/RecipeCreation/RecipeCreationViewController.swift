@@ -12,7 +12,6 @@ final class RecipeCreationViewController: UIViewController {
     
     let recipe: Recipe
     
-    private let ingredients: Set<Ingredient>
     private let backgroundContext: NSManagedObjectContext
     
     // MARK: - UI Elements
@@ -26,7 +25,7 @@ final class RecipeCreationViewController: UIViewController {
         return textField
     }()
     
-    private lazy var ingredientsCollection = IngredientCollectionViewController(ingredients: ingredients)
+    private var ingredientsCollection: IngredientCollectionViewController
     
     private lazy var createButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -40,9 +39,10 @@ final class RecipeCreationViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    init(ingredients: Set<Ingredient>, backgroundContext: NSManagedObjectContext) {
-        self.ingredients = ingredients
+    init(ingredients: [Ingredient], backgroundContext: NSManagedObjectContext) {
         self.backgroundContext = backgroundContext
+        
+        self.ingredientsCollection = IngredientCollectionViewController(ingredients: ingredients)
         self.recipe = Recipe(context: backgroundContext)
         super.init(nibName: nil, bundle: nil)
     }

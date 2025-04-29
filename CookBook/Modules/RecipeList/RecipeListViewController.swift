@@ -17,9 +17,7 @@ final class RecipeListViewController: UITableViewController {
     private var request = Recipe.fetchRequest()
     
     private lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
-        let controller = NSFetchedResultsController(
-            fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil
-        )
+        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
         return controller
     }()

@@ -12,6 +12,11 @@
         <attribute name="formRaw" attributeType="String" defaultValueString="piece"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="quantity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quantity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Quantity" representedClassName="Quantity" syncable="YES">
         <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

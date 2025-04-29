@@ -13,7 +13,6 @@ final class MainViewController: UIViewController {
     // MARK: - Properties
     
     private let context: NSManagedObjectContext
-    private var ingredients = Set<Ingredient>()
     
     // MARK: - UI Elements
     
@@ -44,7 +43,6 @@ final class MainViewController: UIViewController {
         configureNavigationBar()
         setupSubviews()
         
-        fetchIngredients()
         recipesListViewController.performCoreDataRequest()
     }
     
@@ -83,17 +81,11 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        let viewController = RecipeCreationViewController(ingredients: ingredients, backgroundContext: UIApplication.backgroundContext)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    // MARK: - Helpers
-    
-    private func fetchIngredients() {
+        let context = UIApplication.backgroundContext
         do {
-            let jsonDecoder = JSONDecoder(context: UIApplication.backgroundContext)
-            let data = try Data(contentsOf: URL.ingredientsDirectory)
-            ingredients = try jsonDecoder.decode(Set<Ingredient>.self, from: data)
+            let ingredients = try context.fetch(Ingredient.fetchRequest())
+            let viewController = RecipeCreationViewController(ingredients: ingredients, backgroundContext: context)
+            navigationController?.pushViewController(viewController, animated: true)
         } catch {
             print(error)
         }

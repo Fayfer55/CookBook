@@ -28,7 +28,6 @@ extension UICollectionView {
 
 }
 
-
 // MARK: - Dequeue Error Method
 
 extension UICollectionView {

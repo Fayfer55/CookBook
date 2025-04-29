@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Ingredient {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Ingredient> {
@@ -39,6 +38,6 @@ extension Ingredient {
 
 }
 
-extension Ingredient : Identifiable {
+extension Ingredient: Identifiable {
 
 }

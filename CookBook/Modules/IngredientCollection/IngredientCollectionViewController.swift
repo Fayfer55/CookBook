@@ -7,16 +7,24 @@
 
 import UIKit
 
-final class IngredientCollectionViewController: UICollectionViewController {
+final class IngredientCollectionViewController: GridViewController {
     
-    let ingredients: Set<Ingredient>
+    let ingredients: [Ingredient]
+    
+    var selectedIngredients: [Ingredient] {
+        guard let selectedIndexPaths = gridView.indexPathsForSelectedItems else { return [] }
+        return selectedIndexPaths.map { ingredients[$0.item] }
+    }
     
     // MARK: - Lifecycle
     
-    init(ingredients: Set<Ingredient>) {
+    init(ingredients: [Ingredient]) {
         self.ingredients = ingredients
-        let layout = UICollectionViewLayout()
-        super.init(collectionViewLayout: layout)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        super.init(layout: layout)
     }
     
     @available(*, unavailable)
@@ -33,7 +41,8 @@ final class IngredientCollectionViewController: UICollectionViewController {
     // MARK: - Layout
 
     private func setupParentView() {
-        collectionView.register(cellType: IngredientCollectionCell.self)
+        gridView.register(cellType: IngredientCollectionCell.self)
+        gridView.allowsMultipleSelection = true
     }
 
 }
@@ -41,51 +50,28 @@ final class IngredientCollectionViewController: UICollectionViewController {
 // MARK: UICollectionViewDataSource
 
 extension IngredientCollectionViewController {
-    
-    override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { ingredients.count }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: IngredientCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
-        let orderedIngredients = ingredients.sorted { $0.name > $1.name }
-        cell.configure(with: orderedIngredients[indexPath.item])
+        cell.configure(with: ingredients[indexPath.item])
         return cell
     }
     
 }
 
-// MARK: UICollectionViewDelegate
+// MARK: UICollectionViewDelegateFlowLayout
 
-extension IngredientCollectionViewController {
-    
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+extension IngredientCollectionViewController: UICollectionViewDelegateFlowLayout {
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let title = ingredients[indexPath.item].name
+        let safeArea = NSDirectionalEdgeInsets.safeArea
+        var size = title.size(withAttributes: [.font: UIFont.systemFont(ofSize: 17)])
+        size.width += safeArea.leading + safeArea.trailing
+        size.height += safeArea.top + safeArea.bottom
+        return size
     }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     
 }

@@ -6,6 +6,7 @@
         <attribute name="subtitle" optional="YES" attributeType="String"/>
         <attribute name="tip" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instruction" inverseEntity="Recipe"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
         <attribute name="categoryRaw" attributeType="String"/>
@@ -27,7 +28,7 @@
         <attribute name="subtitle" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String" minValueString="0" defaultValueString=""/>
         <relationship name="ingredients" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Ingredient"/>
-        <relationship name="instruction" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CookStep"/>
+        <relationship name="instruction" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CookStep" inverseName="recipe" inverseEntity="CookStep"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>

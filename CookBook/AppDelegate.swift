@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ObservableObject {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "CookBook")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 /*
                  Typical reasons for an error here include:

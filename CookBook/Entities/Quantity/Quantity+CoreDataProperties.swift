@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension Quantity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Quantity> {
@@ -30,6 +29,4 @@ extension Quantity {
 
 }
 
-extension Quantity : Identifiable {
-
-}
+extension Quantity: Identifiable { }

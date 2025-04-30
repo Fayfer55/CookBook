@@ -36,12 +36,6 @@ class GridViewController: UIViewController {
         setupSubviews()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
-    
     // MARK: - Layout
     
     private func setupSubviews() {

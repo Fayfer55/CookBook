@@ -34,9 +34,8 @@ final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
     override func updateConfiguration(using state: UICellConfigurationState) {
         guard var configuration = backgroundConfiguration?.updated(for: state) else { return }
         
-        if state.isSelected {
-            configuration.backgroundColor = .systemGreen
-        }
+        configuration.backgroundColor = state.isSelected ? .systemGreen : .systemBlue
+        
         backgroundConfiguration = configuration
     }
     

@@ -20,6 +20,8 @@
 		C5200FE82DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */; };
 		C5200FEA2DBBF98F0058F11A /* UIApplication+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE92DBBF98F0058F11A /* UIApplication+CoreData.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
+		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
+		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDirectionalEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
+		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -136,6 +140,7 @@
 		C50DDBC82D9DBE0200460522 /* CookBook */ = {
 			isa = PBXGroup;
 			children = (
+				C57F7FEA2DC1FB2B008E9AE6 /* Base */,
 				C50E8BC12DB7C2580072A2F6 /* Protocols */,
 				C50E8B362DB66FD30072A2F6 /* Resources */,
 				C50E8B262DB641380072A2F6 /* Entities */,
@@ -207,6 +212,23 @@
 				C50E8B852DB6BAA80072A2F6 /* Foundation */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C57F7FEA2DC1FB2B008E9AE6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C57F7FED2DC1FCE8008E9AE6 /* Grid */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C57F7FED2DC1FCE8008E9AE6 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */,
+				C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */,
+			);
+			path = Grid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,9 +392,11 @@
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */,
+				C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */,
 				C5200FEA2DBBF98F0058F11A /* UIApplication+CoreData.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,
 				C50DDBCC2D9DBE0200460522 /* SceneDelegate.swift in Sources */,
+				C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

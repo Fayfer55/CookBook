@@ -5,7 +5,7 @@
 //  Created by Kirill Faifer on 23.04.2025.
 //
 
-import CoreData
+@preconcurrency import CoreData
 
 extension JSONDecoder {
     

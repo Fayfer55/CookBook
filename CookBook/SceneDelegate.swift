@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
-        let viewController = MainViewController(context: UIApplication.viewContext)
+        let viewController = MainViewController(context: CoreDataStack.shared.mainContext)
         let navigationController = UINavigationController(rootViewController: viewController)
         let appearance = UINavigationBarAppearance()
         appearance.configureWithDefaultBackground()
@@ -58,7 +58,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        UIApplication.saveContext()
+        do {
+            try CoreDataStack.shared.saveContext()
+        } catch {
+            print(error)
+        }
     }
 
 }

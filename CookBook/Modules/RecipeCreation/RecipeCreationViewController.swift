@@ -32,7 +32,7 @@ final class RecipeCreationViewController: UIViewController {
     
     private var ingredientsCollection: IngredientCollectionViewController
     
-    private lazy var instructionViewController = InstructionListViewController(recipe: recipe, context: UIApplication.viewContext)
+    private lazy var instructionViewController = InstructionListViewController(recipe: recipe, context: CoreDataStack.shared.mainContext)
     
     private lazy var addStepButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -141,8 +141,7 @@ final class RecipeCreationViewController: UIViewController {
         }
         
         do {
-            try backgroundContext.save()
-            UIApplication.saveContext()
+            try CoreDataStack.shared.saveContext(with: backgroundContext)
             
             navigationController?.popViewController(animated: true)
         } catch {

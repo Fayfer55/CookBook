@@ -18,9 +18,10 @@
 		C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */; };
 		C50E8C272DB8E7CB0072A2F6 /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
 		C5200FE82DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */; };
-		C5200FEA2DBBF98F0058F11A /* UIApplication+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE92DBBF98F0058F11A /* UIApplication+CoreData.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 		C53DF1542DC21A9900FDB470 /* String+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF1532DC21A9800FDB470 /* String+Static.swift */; };
+		C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
+		C53DF19D2DC382C900FDB470 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
 		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,12 +55,13 @@
 		C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Static.swift"; sourceTree = "<group>"; };
 		C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Init.swift"; sourceTree = "<group>"; };
 		C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ClassIdentifiable.swift"; sourceTree = "<group>"; };
-		C5200FE92DBBF98F0058F11A /* UIApplication+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+CoreData.swift"; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDirectionalEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		C53DF1532DC21A9800FDB470 /* String+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Static.swift"; sourceTree = "<group>"; };
+		C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,8 @@
 				C533B8E02D9EBA0700B7897E /* Extensions */,
 				C50DDBC22D9DBE0200460522 /* AppDelegate.swift */,
 				C50DDBC62D9DBE0200460522 /* SceneDelegate.swift */,
+				C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */,
+				C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */,
 				C50DDBC52D9DBE0200460522 /* Info.plist */,
 				C533B8E82D9EBCE700B7897E /* Views */,
 			);
@@ -166,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */,
-				C5200FE92DBBF98F0058F11A /* UIApplication+CoreData.swift */,
 				C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */,
 			);
 			path = UIKit;
@@ -378,10 +381,11 @@
 				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
 				C53DF1542DC21A9900FDB470 /* String+Static.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
+				C53DF19D2DC382C900FDB470 /* CoreDataStack.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
+				C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */,
 				C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */,
 				C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */,
-				C5200FEA2DBBF98F0058F11A /* UIApplication+CoreData.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,
 				C50DDBCC2D9DBE0200460522 /* SceneDelegate.swift in Sources */,
 				C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */,

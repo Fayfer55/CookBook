@@ -82,7 +82,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        let context = UIApplication.backgroundContext
+        let context = CoreDataStack.shared.newBackgroundContext
         do {
             let ingredients = try context.fetch(Ingredient.fetchRequest())
             let viewController = RecipeCreationViewController(ingredients: ingredients, backgroundContext: context)

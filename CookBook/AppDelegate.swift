@@ -10,32 +10,6 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, ObservableObject {
-    
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "CookBook")
-        container.loadPersistentStores(completionHandler: { (_, error) in
-            if let error = error as NSError? {
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         fetchIngredients()
@@ -65,15 +39,13 @@ extension AppDelegate {
     
     private func fetchIngredients() {
         do {
-            let context = persistentContainer.newBackgroundContext()
-            context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+            let context = CoreDataStack.shared.newBackgroundContext
             
             let jsonDecoder = JSONDecoder(context: context)
             let data = try Data(contentsOf: URL.ingredientsDirectory)
             _ = try jsonDecoder.decode(Set<Ingredient>.self, from: data)
             
-            try context.save()
-            UIApplication.saveContext()
+            try CoreDataStack.shared.saveContext(with: context)
         } catch {
             print(error)
         }

@@ -40,15 +40,3 @@ final class IngredientButton: UIButton {
     }
     
 }
-
-#Preview(traits: .fixedLayout(width: 300, height: 300)) {
-    let context = UIApplication.viewContext
-    let ingredient = Ingredient(context: context)
-    ingredient.name = "Tomato"
-    ingredient.form = .piece
-    ingredient.category = .vegetables
-    
-    let view = IngredientButton(ingredient: ingredient)
-//    view.backgroundColor = .red
-    return view
-}

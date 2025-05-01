@@ -40,7 +40,7 @@ final class CoreDataStack: Sendable {
             description.type = NSInMemoryStoreType
             persistentContainer.persistentStoreDescriptions = [description]
         } else {
-            persistentContainer = NSPersistentContainer(name: "CookBook")
+            persistentContainer = NSPersistentContainer(name: CoreDataStack.name)
         }
 
         persistentContainer.loadPersistentStores { _, error in

@@ -64,25 +64,9 @@
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C50E8B722DB6B0750072A2F6 /* Exceptions for "Entities" folder in "CookBookTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Ingredient/Ingredient+CoreDataClass.swift",
-				"Ingredient/Ingredient+CoreDataProperties.swift",
-				"Quantity/Quantity+CoreDataClass.swift",
-				"Quantity/Quantity+CoreDataProperties.swift",
-			);
-			target = C52635522D92DC900026B907 /* CookBookTests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C50E8B262DB641380072A2F6 /* Entities */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C50E8B722DB6B0750072A2F6 /* Exceptions for "Entities" folder in "CookBookTests" target */,
-			);
 			path = Entities;
 			sourceTree = "<group>";
 		};

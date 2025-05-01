@@ -22,6 +22,11 @@
 		C53DF1542DC21A9900FDB470 /* String+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF1532DC21A9800FDB470 /* String+Static.swift */; };
 		C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
 		C53DF19D2DC382C900FDB470 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
+		C53DF1A42DC3AB6C00FDB470 /* CookBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C50DDBC42D9DBE0200460522 /* CookBook.xcdatamodeld */; };
+		C53DF1A52DC3AC6300FDB470 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
+		C53DF1A62DC3AC7A00FDB470 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
+		C53DF1B52DC3AD3300FDB470 /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
+		C53DF1B62DC3AD7200FDB470 /* CodingUserInfoKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */; };
 		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
 /* End PBXBuildFile section */
@@ -66,9 +71,39 @@
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				RecipeCreation/RecipeCreatable.swift,
+				RecipeCreation/RecipeCreationModel.swift,
+			);
+			target = C52635522D92DC900026B907 /* CookBookTests */;
+		};
+		C53DF1AB2DC3ACA900FDB470 /* Exceptions for "Entities" folder in "CookBookTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"CookStep/CookStep+CoreDataClass.swift",
+				"CookStep/CookStep+CoreDataProperties.swift",
+				"Ingredient/Ingredient+CoreDataClass.swift",
+				"Ingredient/Ingredient+CoreDataProperties.swift",
+				IngredientCategory.swift,
+				IngredientForm.swift,
+				"Quantity/Quantity+CoreDataClass.swift",
+				"Quantity/Quantity+CoreDataProperties.swift",
+				"Recipe/Recipe+CoreDataClass.swift",
+				"Recipe/Recipe+CoreDataProperties.swift",
+			);
+			target = C52635522D92DC900026B907 /* CookBookTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C50E8B262DB641380072A2F6 /* Entities */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C53DF1AB2DC3ACA900FDB470 /* Exceptions for "Entities" folder in "CookBookTests" target */,
+			);
 			path = Entities;
 			sourceTree = "<group>";
 		};
@@ -94,6 +129,9 @@
 		};
 		C533B8EB2D9EBE1700B7897E /* Modules */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */,
+			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
@@ -312,7 +350,6 @@
 					};
 					C52635522D92DC900026B907 = {
 						CreatedOnToolsVersion = 16.2;
-						TestTargetID = C52635392D92DC8C0026B907;
 					};
 					C526355C2D92DC900026B907 = {
 						CreatedOnToolsVersion = 16.2;
@@ -396,6 +433,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53DF1A52DC3AC6300FDB470 /* CoreDataStack.swift in Sources */,
+				C53DF1B62DC3AD7200FDB470 /* CodingUserInfoKey+Extensions.swift in Sources */,
+				C53DF1A62DC3AC7A00FDB470 /* AppEnvironment.swift in Sources */,
+				C53DF1B52DC3AD3300FDB470 /* JSONDecoder+Init.swift in Sources */,
+				C53DF1A42DC3AB6C00FDB470 /* CookBook.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +656,6 @@
 		C526356C2D92DC900026B907 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7F5MV2U5PR;
@@ -630,14 +671,12 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CookBook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CookBook";
 			};
 			name = Debug;
 		};
 		C526356D2D92DC900026B907 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7F5MV2U5PR;
@@ -653,7 +692,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CookBook.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CookBook";
 			};
 			name = Release;
 		};

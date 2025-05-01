@@ -6,13 +6,10 @@
 //
 
 import UIKit
-import CoreData
 
 final class RecipeCreationViewController: UIViewController {
     
-    let recipe: Recipe
-    
-    private let backgroundContext: NSManagedObjectContext
+    private let viewModel: RecipeCreatable
     
     // MARK: - UI Elements
     
@@ -32,7 +29,7 @@ final class RecipeCreationViewController: UIViewController {
     
     private var ingredientsCollection: IngredientCollectionViewController
     
-    private lazy var instructionViewController = InstructionListViewController(recipe: recipe, context: CoreDataStack.shared.mainContext)
+    private lazy var instructionViewController = InstructionListViewController()
     
     private lazy var addStepButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -56,11 +53,9 @@ final class RecipeCreationViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    init(ingredients: [Ingredient], backgroundContext: NSManagedObjectContext) {
-        self.backgroundContext = backgroundContext
-        
+    init(model: RecipeCreatable, ingredients: [Ingredient]) {
+        viewModel = model
         self.ingredientsCollection = IngredientCollectionViewController(ingredients: ingredients)
-        self.recipe = Recipe(context: backgroundContext)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -134,15 +129,11 @@ final class RecipeCreationViewController: UIViewController {
     
     @objc
     private func createRecipe() {
-        recipe.title = nameTextField.text ?? ""
-        recipe.id = UUID()
-        ingredientsCollection.selectedIngredients.forEach {
-            recipe.addToIngredients($0)
-        }
+        viewModel.addTitle(nameTextField.text ?? "Some recipe")
+        viewModel.addIngredients(ingredientsCollection.selectedIngredients)
         
         do {
-            try CoreDataStack.shared.saveContext(with: backgroundContext)
-            
+            try viewModel.saveRecipe()
             navigationController?.popViewController(animated: true)
         } catch {
             print(error)
@@ -155,12 +146,7 @@ final class RecipeCreationViewController: UIViewController {
         
         let addAction = UIAlertAction(title: "Add", style: .default) { [unowned self] _ in
             guard let textField = alertController.textFields?.first, let text = textField.text, !text.isEmpty else { return }
-            
-            let step = CookStep(context: self.backgroundContext)
-            step.title = text
-            step.number = Int16(self.instructionViewController.stepsCount) + Int16(1)
-            
-            self.recipe.addToInstruction(step)
+            let step = viewModel.addStep(title: text, subtitle: nil, tip: nil)
             self.instructionViewController.add(step: step)
         }
         

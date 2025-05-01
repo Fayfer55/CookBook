@@ -85,7 +85,8 @@ final class MainViewController: UIViewController {
         let context = CoreDataStack.shared.newBackgroundContext
         do {
             let ingredients = try context.fetch(Ingredient.fetchRequest())
-            let viewController = RecipeCreationViewController(ingredients: ingredients, backgroundContext: context)
+            let model = RecipeCreationModel(backgroundContext: context)
+            let viewController = RecipeCreationViewController(model: model, ingredients: ingredients)
             navigationController?.pushViewController(viewController, animated: true)
         } catch {
             print(error)

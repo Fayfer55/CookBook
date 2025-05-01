@@ -11,9 +11,9 @@ final class IngredientCollectionViewController: GridViewController {
     
     let ingredients: [Ingredient]
     
-    var selectedIngredients: [Ingredient] {
+    var selectedIngredients: Set<Ingredient> {
         guard let selectedIndexPaths = gridView.indexPathsForSelectedItems else { return [] }
-        return selectedIndexPaths.map { ingredients[$0.item] }
+        return Set(selectedIndexPaths.map { ingredients[$0.item] })
     }
     
     // MARK: - Lifecycle

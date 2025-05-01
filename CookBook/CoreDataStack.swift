@@ -11,6 +11,7 @@ import CoreData
 final class CoreDataStack: Sendable {
     
     static let shared = CoreDataStack()
+    static let name = "CookBook"
 
     let persistentContainer: NSPersistentContainer
     
@@ -27,12 +28,19 @@ final class CoreDataStack: Sendable {
     // MARK: - Init
 
     private init() {
-        persistentContainer = NSPersistentContainer(name: "CookBook")
-
         if AppEnvironment.shared.useInMemoryCoreData {
+            let bundle = Bundle(for: type(of: self))
+            guard let modelURL = bundle.url(forResource: CoreDataStack.name, withExtension: "momd"),
+                  let model = NSManagedObjectModel(contentsOf: modelURL) else {
+                fatalError("Failed to find CookBook model")
+            }
+            persistentContainer = NSPersistentContainer(name: CoreDataStack.name, managedObjectModel: model)
+            
             let description = NSPersistentStoreDescription()
             description.type = NSInMemoryStoreType
             persistentContainer.persistentStoreDescriptions = [description]
+        } else {
+            persistentContainer = NSPersistentContainer(name: "CookBook")
         }
 
         persistentContainer.loadPersistentStores { _, error in

@@ -11,5 +11,11 @@ import CoreData
 
 @objc(Recipe)
 public class Recipe: NSManagedObject {
+    
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        self.id = UUID()
+    }
 
 }

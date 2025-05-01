@@ -68,5 +68,28 @@ final class RecipeCreationTests: XCTestCase {
         
         XCTAssert(model.recipe.instruction.count == 1, "step didn't set")
     }
+    
+    func testSaveRecipe() throws {
+        let recipeTitle = "Second recipe"
+        
+        let stepTitle = "First step"
+        let stepSubtitle = "First step subtitle"
+        
+        let ingredient = Ingredient(context: context)
+        ingredient.name = "egg"
+        ingredient.category = .dairy
+        ingredient.form = .piece
+        
+        model.addTitle(recipeTitle)
+        model.addIngredients(Set([ingredient]))
+        model.addStep(title: stepTitle, subtitle: stepSubtitle, tip: nil)
+        
+        let mainContext = CoreDataStack.shared.mainContext
+        let recipesBefore = try mainContext.fetch(Recipe.fetchRequest()).count
+        try model.saveRecipe()
+        let recipesAfter = try mainContext.fetch(Recipe.fetchRequest()).count
+        
+        XCTAssert(recipesBefore + 1 == recipesAfter, "recipe didn't save")
+    }
 
 }

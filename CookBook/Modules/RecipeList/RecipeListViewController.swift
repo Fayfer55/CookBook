@@ -58,7 +58,11 @@ final class RecipeListViewController: UITableViewController {
 extension RecipeListViewController {
     
     func requestRecipes() {
-        viewModel.fetchRequest()
+        do {
+            try viewModel.fetchRequest()
+        } catch {
+            print(error)
+        }
     }
     
 }

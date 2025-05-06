@@ -14,5 +14,5 @@ protocol DataFetchable<SectionIdentifierType, ItemIdentifierType>: AnyObject {
     associatedtype ItemIdentifierType: Hashable, Sendable
     
     var delegate: (any DiffableDataSourceFetchDelegate<SectionIdentifierType, ItemIdentifierType>)? { get set }
-    func fetchRequest()
+    func fetchRequest() throws
 }

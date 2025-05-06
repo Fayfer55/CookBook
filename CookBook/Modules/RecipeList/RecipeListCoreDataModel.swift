@@ -31,13 +31,9 @@ final class RecipeListCoreDataModel: NSObject, DataFetchable {
     
     // MARK: - Helpers
     
-    func fetchRequest() {
-        do {
-            request.sortDescriptors = []
-            try fetchedResultController.performFetch()
-        } catch {
-            print(error)
-        }
+    func fetchRequest() throws {
+        request.sortDescriptors = []
+        try fetchedResultController.performFetch()
     }
     
 }

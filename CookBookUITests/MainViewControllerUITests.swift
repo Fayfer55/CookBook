@@ -1,13 +1,14 @@
 //
-//  CookBookUITests.swift
-//  CookBookUITests
+//  MainViewControllerUITests.swift
+//  MainViewControllerUITests
 //
 //  Created by Kirill Faifer on 25.03.2025.
 //
 
 import XCTest
+@testable import CookBook
 
-final class CookBookUITests: XCTestCase {
+final class MainViewControllerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,12 +24,15 @@ final class CookBookUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
+    func testShowingEmptyStateOnMainViewController() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        app.launchArguments.append("-useTestEnvironment")
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let emptyLabel = app.staticTexts[MainViewController.Accessibility.emptyLabelIdentifier]
+        
+        XCTAssertTrue(emptyLabel.waitForExistence(timeout: 2), "Label doesn't exist")
     }
 
     @MainActor

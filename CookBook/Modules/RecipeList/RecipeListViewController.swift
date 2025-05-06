@@ -10,7 +10,9 @@ import CoreData
 
 final class RecipeListViewController: UITableViewController {
     
-    // MARK: - Proeprties
+    // MARK: - Properties
+    
+    private var onDataSourceChange: ((Bool) -> Void)?
     
     private let context: NSManagedObjectContext
     private let viewModel: any DataFetchable<Int, NSManagedObjectID>
@@ -57,8 +59,9 @@ final class RecipeListViewController: UITableViewController {
 
 extension RecipeListViewController {
     
-    func requestRecipes() {
+    func requestRecipes(onCompletion: @escaping (Bool) -> Void) {
         do {
+            onDataSourceChange = onCompletion
             try viewModel.fetchRequest()
         } catch {
             print(error)
@@ -74,6 +77,7 @@ extension RecipeListViewController: DiffableDataSourceFetchDelegate {
     nonisolated
     func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>) {
         DispatchQueue.main.async { [weak self] in
+            self?.onDataSourceChange?(snapshot.itemIdentifiers.isEmpty)
             self?.dataSource.apply(snapshot)
         }
     }

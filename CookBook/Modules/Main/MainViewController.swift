@@ -16,7 +16,10 @@ final class MainViewController: UIViewController {
     
     // MARK: - UI Elements
     
-    private lazy var recipesListViewController = RecipeListViewController(context: context)
+    private lazy var recipesListViewController: RecipeListViewController = {
+        let model = RecipeListCoreDataModel(mainContext: context)
+        return RecipeListViewController(model: model, mainContext: context)
+    }()
     
     private lazy var emptyLabel: UILabel = {
         let label = UILabel()
@@ -43,7 +46,7 @@ final class MainViewController: UIViewController {
         configureNavigationBar()
         setupSubviews()
         
-        recipesListViewController.performCoreDataRequest()
+        recipesListViewController.requestRecipes()
     }
     
     // MARK: - Layout
@@ -82,15 +85,29 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        let context = CoreDataStack.shared.newBackgroundContext
-        do {
-            let ingredients = try context.fetch(Ingredient.fetchRequest())
-            let model = RecipeCreationModel(backgroundContext: context)
-            let viewController = RecipeCreationViewController(model: model, ingredients: ingredients)
-            navigationController?.pushViewController(viewController, animated: true)
-        } catch {
-            print(error)
+        DispatchQueue.global(qos: .background).async {
+            print("before")
+            let context = CoreDataStack.shared.newBackgroundContext
+            
+            context.perform { // crash - enqueue from main thread
+                do {
+                    let request = NSFetchRequest<NSManagedObjectID>(entityName: "Recipe")
+                    request.resultType = .managedObjectIDResultType
+                    let objects = try context.fetch(request)
+                    let model = RecipeCreationModel(backgroundContext: context)
+                    let ingredients = objects.compactMap { try? CoreDataStack.shared.mainContext.existingObject(with: $0) as? Ingredient }
+                    print("inside")
+                    
+                    DispatchQueue.main.async { [weak self] in
+//                        let viewController = RecipeCreationViewController(model: model, ingredients: ingredients)
+//                        self?.navigationController?.pushViewController(viewController, animated: true)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
         }
+        print("after")
     }
 
 }

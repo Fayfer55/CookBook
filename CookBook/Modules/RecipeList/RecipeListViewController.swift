@@ -13,15 +13,8 @@ final class RecipeListViewController: UITableViewController {
     // MARK: - Proeprties
     
     private let context: NSManagedObjectContext
-    
-    private var request = Recipe.fetchRequest()
-    
-    private lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
-        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
-        return controller
-    }()
-    
+    private let viewModel: any DataFetchable<Int, NSManagedObjectID>
+        
     private lazy var dataSource = UITableViewDiffableDataSource<Int, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, objectID in
         guard let recipe = try? self.context.existingObject(with: objectID) as? Recipe else {
             fatalError("Recipe should exist") // TODO: - handle error
@@ -33,8 +26,9 @@ final class RecipeListViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init(model: any DataFetchable<Int, NSManagedObjectID>, mainContext: NSManagedObjectContext) {
+        viewModel = model
+        context = mainContext
         super.init(style: .grouped)
     }
     
@@ -45,6 +39,8 @@ final class RecipeListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.delegate = self
         
         setupParentView()
     }
@@ -61,26 +57,20 @@ final class RecipeListViewController: UITableViewController {
 
 extension RecipeListViewController {
     
-    func performCoreDataRequest() {
-        do {
-            request.sortDescriptors = []
-            try fetchedResultController.performFetch()
-        } catch {
-            print(error)
-        }
+    func requestRecipes() {
+        viewModel.fetchRequest()
     }
     
 }
 
-// MARK: - NSFetchedResultsControllerDelegate
+// MARK: - DiffableDataSourceFetchDelegate
 
-extension RecipeListViewController: NSFetchedResultsControllerDelegate {
+extension RecipeListViewController: DiffableDataSourceFetchDelegate {
     
     nonisolated
-    func controller(_ controller: NSFetchedResultsController<any NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
-        let snapshot = snapshot as NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>
-        DispatchQueue.main.async {
-            self.dataSource.apply(snapshot, animatingDifferences: true)
+    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>) {
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource.apply(snapshot)
         }
     }
     

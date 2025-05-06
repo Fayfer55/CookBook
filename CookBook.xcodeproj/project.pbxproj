@@ -96,6 +96,13 @@
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
 		};
+		C5BFD63F2DCA048F006D2F70 /* Exceptions for "Protocols" folder in "CookBookTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DataFetchable.swift,
+			);
+			target = C52635522D92DC900026B907 /* CookBookTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -109,6 +116,9 @@
 		};
 		C50E8BC12DB7C2580072A2F6 /* Protocols */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C5BFD63F2DCA048F006D2F70 /* Exceptions for "Protocols" folder in "CookBookTests" target */,
+			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};

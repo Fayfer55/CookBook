@@ -10,7 +10,7 @@ import CoreData
 
 final class RecipeListCoreDataModel: NSObject, DataFetchable {
     
-    // MARK: - Proeprties
+    // MARK: - Properties
     
     weak var delegate: (any DiffableDataSourceFetchDelegate<Int, NSManagedObjectID>)?
     

@@ -14,19 +14,19 @@ final class RecipeListCoreDataModel: NSObject, DataFetchable {
     
     weak var delegate: (any DiffableDataSourceFetchDelegate<Int, NSManagedObjectID>)?
     
-    private let mainContext: NSManagedObjectContext
-    private var request = Recipe.fetchRequest()
-    
-    private lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
-        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: mainContext, sectionNameKeyPath: nil, cacheName: nil)
+    private(set) lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
+        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
         return controller
     }()
     
+    private let context: NSManagedObjectContext
+    private var request = Recipe.fetchRequest()
+    
     // MARK: - Init
     
-    init(mainContext: NSManagedObjectContext) {
-        self.mainContext = mainContext
+    init(context: NSManagedObjectContext) {
+        self.context = context
     }
     
     // MARK: - Helpers

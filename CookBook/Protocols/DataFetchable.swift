@@ -9,7 +9,7 @@ import UIKit
 
 /// This is protocol for fetching array of Items. It uses NSDiffableDataSource as an abstraction layer of storing.
 /// It allows to combine CoreData's NSFetchedResultsControllerDelegate & some mock's type to show in UITableViewController
-protocol DataFetchable<SectionIdentifierType, ItemIdentifierType> {
+protocol DataFetchable<SectionIdentifierType, ItemIdentifierType>: AnyObject {
     associatedtype SectionIdentifierType: Hashable, Sendable
     associatedtype ItemIdentifierType: Hashable, Sendable
     

@@ -93,7 +93,6 @@
 			membershipExceptions = (
 				RecipeCreation/RecipeCreatable.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
-				RecipeList/RecipeListCoreDataModel.swift,
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
 		};
@@ -131,7 +130,6 @@
 				RecipeCreation/RecipeCreatable.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationViewController.swift,
-				RecipeList/RecipeListCoreDataModel.swift,
 				RecipeList/RecipeListTableCell.swift,
 				RecipeList/RecipeListViewController.swift,
 			);
@@ -161,6 +159,13 @@
 				DiffableDataSourceFetchDelegate.swift,
 			);
 			target = C526355C2D92DC900026B907 /* CookBookUITests */;
+		};
+		C5FAAAB32DD36281004475E9 /* Exceptions for "CoreDataFetchModel" folder in "CookBookTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CoreDataFetchModel.swift,
+			);
+			target = C52635522D92DC900026B907 /* CookBookTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -205,6 +210,14 @@
 				C5D57CB42DCA74C700841BAA /* Exceptions for "Modules" folder in "CookBookUITests" target */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C5FAAAB32DD36281004475E9 /* Exceptions for "CoreDataFetchModel" folder in "CookBookTests" target */,
+			);
+			path = CoreDataFetchModel;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -320,6 +333,7 @@
 		C57F7FEA2DC1FB2B008E9AE6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */,
 				C57F7FED2DC1FCE8008E9AE6 /* Grid */,
 			);
 			path = Base;
@@ -362,6 +376,7 @@
 				C50E8BC12DB7C2580072A2F6 /* Protocols */,
 				C533B8E82D9EBCE700B7897E /* Views */,
 				C533B8EB2D9EBE1700B7897E /* Modules */,
+				C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */,
 			);
 			name = CookBook;
 			packageProductDependencies = (
@@ -409,6 +424,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C52635602D92DC900026B907 /* CookBookUITests */,
+				C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */,
 			);
 			name = CookBookUITests;
 			packageProductDependencies = (

@@ -1,5 +1,5 @@
 //
-//  RecipeFetchingTests.swift
+//  CoreDataFetchModelTests.swift
 //  CookBookTests
 //
 //  Created by Kirill Faifer on 06.05.2025.
@@ -9,18 +9,18 @@ import XCTest
 import CoreData
 @testable import CookBook
 
-final class RecipeFetchingTests: XCTestCase {
+final class CoreDataFetchModelTests: XCTestCase {
     
     private var context: NSManagedObjectContext!
-    private var model: RecipeListCoreDataModel!
+    private var model: CoreDataFetchModel<Recipe>!
     private var expectation: XCTestExpectation!
-    private var snapshot: NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>?
+    private var snapshot: NSDiffableDataSourceSnapshot<String, NSManagedObjectID>?
     
     // MARK: - Lifecycle
     
     override func setUpWithError() throws {
         context = CoreDataStack.shared.mainContext
-        model = RecipeListCoreDataModel(context: context)
+        model = CoreDataFetchModel<Recipe>(context: context)
         expectation = XCTestExpectation(description: "Background task completes")
         model.delegate = self
         
@@ -94,9 +94,9 @@ final class RecipeFetchingTests: XCTestCase {
 
 // MARK: - DiffableDataSourceFetchDelegate
 
-extension RecipeFetchingTests: DiffableDataSourceFetchDelegate {
+extension CoreDataFetchModelTests: DiffableDataSourceFetchDelegate {
     
-    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>) {
+    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<String, NSManagedObjectID>) {
         self.snapshot = snapshot
         expectation.fulfill()
     }

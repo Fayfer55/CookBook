@@ -14,11 +14,10 @@ final class RecipeListViewController: UITableViewController {
     
     private var onDataSourceChange: ((Bool) -> Void)?
     
-    private let context: NSManagedObjectContext
-    private let viewModel: any DataFetchable<Int, NSManagedObjectID>
+    private let viewModel: CoreDataFetchModel<Recipe>
         
-    private lazy var dataSource = UITableViewDiffableDataSource<Int, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, objectID in
-        guard let recipe = try? self.context.existingObject(with: objectID) as? Recipe else {
+    private lazy var dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, objectID in
+        guard let recipe = try? self.viewModel.context.existingObject(with: objectID) as? Recipe else {
             fatalError("Recipe should exist") // TODO: - handle error
         }
         let cell: RecipeListTableCell = tableView.dequeueReusableCell(for: indexPath)
@@ -28,9 +27,8 @@ final class RecipeListViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    init(model: any DataFetchable<Int, NSManagedObjectID>, mainContext: NSManagedObjectContext) {
+    init(model: CoreDataFetchModel<Recipe>) {
         viewModel = model
-        context = mainContext
         super.init(style: .grouped)
     }
     
@@ -75,7 +73,7 @@ extension RecipeListViewController {
 extension RecipeListViewController: DiffableDataSourceFetchDelegate {
     
     nonisolated
-    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<Int, NSManagedObjectID>) {
+    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<String, NSManagedObjectID>) {
         DispatchQueue.main.async { [weak self] in
             self?.onDataSourceChange?(snapshot.itemIdentifiers.isEmpty)
             self?.dataSource.apply(snapshot)

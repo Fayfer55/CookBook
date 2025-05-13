@@ -12,13 +12,13 @@ import CoreData
 final class RecipeCreationTests: XCTestCase {
     
     private var context: NSManagedObjectContext!
-    private var model: RecipeCreationModel!
+    private var model: RecipeCreationCoreDataModel!
     
     // MARK: - Lifecycle
     
     override func setUpWithError() throws {
         context = CoreDataStack.shared.newBackgroundContext
-        model = RecipeCreationModel(backgroundContext: context)
+        model = RecipeCreationCoreDataModel()
     }
 
     override func tearDownWithError() throws {

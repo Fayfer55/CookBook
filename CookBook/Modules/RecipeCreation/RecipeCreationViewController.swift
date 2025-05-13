@@ -24,6 +24,8 @@ final class RecipeCreationViewController: UIViewController {
         textField.layer.cornerRadius = 15
         textField.layer.borderWidth = 3
         textField.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        textField.delegate = self
+        textField.returnKeyType = .done
         return textField
     }()
     
@@ -155,6 +157,17 @@ final class RecipeCreationViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         navigationController?.present(alertController, animated: true)
+    }
+    
+}
+
+// MARK: - UITextFieldDelegate
+
+extension RecipeCreationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

@@ -92,7 +92,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				RecipeCreation/RecipeCreatable.swift,
-				RecipeCreation/RecipeCreationModel.swift,
+				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeList/RecipeListCoreDataModel.swift,
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
@@ -129,7 +129,7 @@
 				IngredientCollection/IngredientCollectionViewController.swift,
 				Main/MainViewController.swift,
 				RecipeCreation/RecipeCreatable.swift,
-				RecipeCreation/RecipeCreationModel.swift,
+				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationViewController.swift,
 				RecipeList/RecipeListCoreDataModel.swift,
 				RecipeList/RecipeListTableCell.swift,

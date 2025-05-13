@@ -1,5 +1,5 @@
 //
-//  RecipeCreationModel.swift
+//  RecipeCreationCoreDataModel.swift
 //  CookBook
 //
 //  Created by Kirill Faifer on 01.05.2025.
@@ -7,7 +7,7 @@
 
 import CoreData
 
-struct RecipeCreationModel: RecipeCreatable {
+struct RecipeCreationCoreDataModel: RecipeCreatable {
     
     private(set) var recipe: Recipe
     private let backgroundContext: NSManagedObjectContext

@@ -51,7 +51,9 @@ final class MainViewController: UIViewController {
         configureNavigationBar()
         setupSubviews()
         
-        recipesListViewController.requestRecipes(onCompletion: showEmptyLabelIf(isAnyRecipeExists:))
+        recipesListViewController.requestRecipes(onCompletion: { [weak self] in
+            self?.showEmptyLabelIf(isAnyRecipeExists: $0)
+        })
     }
     
     // MARK: - Layout

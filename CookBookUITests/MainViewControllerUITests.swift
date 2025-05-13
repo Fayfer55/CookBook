@@ -9,6 +9,13 @@ import XCTest
 @testable import CookBook
 
 final class MainViewControllerUITests: XCTestCase {
+    
+    @MainActor
+    private lazy var app: XCUIApplication = {
+        let app = XCUIApplication()
+        app.launchEnvironment["TEST"] = "1"
+        return app
+    }()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,10 +31,7 @@ final class MainViewControllerUITests: XCTestCase {
     }
 
     @MainActor
-    func testShowingEmptyStateOnMainViewController() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launchArguments.append("-useTestEnvironment")
+    func testEmptyStateOnMainViewController() throws {
         app.launch()
         
         let emptyLabel = app.staticTexts[MainViewController.Accessibility.emptyLabelIdentifier]

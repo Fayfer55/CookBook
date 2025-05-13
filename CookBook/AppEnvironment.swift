@@ -21,7 +21,7 @@ final class AppEnvironment: Sendable {
         let arguments = ProcessInfo.processInfo.arguments
         let environment = ProcessInfo.processInfo.environment
 
-        isTestEnvironment = arguments.contains("-useTestEnvironment")
+        isTestEnvironment = environment["TEST"] == "1"
         isPreview = environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
         isDebugBuild = {
             #if DEBUG

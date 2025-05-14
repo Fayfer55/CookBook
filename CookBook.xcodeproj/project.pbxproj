@@ -91,6 +91,7 @@
 		C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreatable.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 			);
@@ -127,6 +128,7 @@
 				IngredientCollection/IngredientCollectionCell.swift,
 				IngredientCollection/IngredientCollectionViewController.swift,
 				Main/MainViewController.swift,
+				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreatable.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationViewController.swift,

@@ -9,7 +9,7 @@ import UIKit
 
 final class IngredientCollectionViewController: GridViewController {
     
-    let ingredients: [Ingredient]
+    private(set) var ingredients = [Ingredient]()
     
     var selectedIngredients: Set<Ingredient> {
         guard let selectedIndexPaths = gridView.indexPathsForSelectedItems else { return [] }
@@ -18,9 +18,7 @@ final class IngredientCollectionViewController: GridViewController {
     
     // MARK: - Lifecycle
     
-    init(ingredients: [Ingredient]) {
-        self.ingredients = ingredients
-        
+    init() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
@@ -45,6 +43,17 @@ final class IngredientCollectionViewController: GridViewController {
         gridView.allowsMultipleSelection = true
     }
 
+}
+
+// MARK: - Helpers
+
+extension IngredientCollectionViewController {
+    
+    func set(ingredients: [Ingredient]) {
+        self.ingredients = ingredients
+        gridView.reloadData()
+    }
+    
 }
 
 // MARK: UICollectionViewDataSource

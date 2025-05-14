@@ -8,6 +8,7 @@
 import Foundation
 
 protocol RecipeCreatable {
+    func allIngredients() -> [Ingredient]
     func addTitle(_ title: String)
     func addIngredients(_ ingredients: Set<Ingredient>)
     func addStep(title: String, subtitle: String?, tip: String?) -> CookStep

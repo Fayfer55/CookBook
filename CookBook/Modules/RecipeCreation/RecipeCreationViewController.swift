@@ -29,7 +29,7 @@ final class RecipeCreationViewController: UIViewController {
         return textField
     }()
     
-    private var ingredientsCollection: IngredientCollectionViewController
+    private lazy var ingredientsCollection = IngredientCollectionViewController()
     
     private lazy var instructionViewController = InstructionListViewController()
     
@@ -55,9 +55,8 @@ final class RecipeCreationViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    init(model: RecipeCreatable, ingredients: [Ingredient]) {
+    init(model: RecipeCreatable) {
         viewModel = model
-        self.ingredientsCollection = IngredientCollectionViewController(ingredients: ingredients)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -71,6 +70,8 @@ final class RecipeCreationViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
         setupSubviews()
+        
+        ingredientsCollection.set(ingredients: viewModel.allIngredients())
     }
     
     // MARK: - Layout

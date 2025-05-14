@@ -10,16 +10,20 @@ import CoreData
 struct RecipeCreationCoreDataModel: RecipeCreatable {
     
     private(set) var recipe: Recipe
-    private let backgroundContext: NSManagedObjectContext
+    private let context: NSManagedObjectContext
     
     // MARK: - Init
     
-    init(backgroundContext: NSManagedObjectContext) {
-        self.recipe = Recipe(context: backgroundContext)
-        self.backgroundContext = backgroundContext
+    init() {
+        context = CoreDataStack.shared.newBackgroundContext
+        recipe = Recipe(context: context)
     }
     
     // MARK: - Helpers
+    
+    func allIngredients() -> [Ingredient] {
+        (try? context.fetch(Ingredient.fetchRequest())) ?? []
+    }
     
     func addTitle(_ title: String) {
         recipe.title = title
@@ -31,7 +35,7 @@ struct RecipeCreationCoreDataModel: RecipeCreatable {
     
     @discardableResult
     func addStep(title: String, subtitle: String?, tip: String?) -> CookStep {
-        let step = CookStep(context: backgroundContext)
+        let step = CookStep(context: context)
         step.number = Int16(recipe.instruction.count + 1)
         step.title = title
         step.subtitle = subtitle
@@ -42,7 +46,7 @@ struct RecipeCreationCoreDataModel: RecipeCreatable {
     }
     
     func saveRecipe() throws {
-        try CoreDataStack.shared.saveContext(with: backgroundContext)
+        try CoreDataStack.shared.saveContext(with: context)
     }
     
 }

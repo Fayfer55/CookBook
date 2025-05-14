@@ -96,15 +96,9 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        do {
-            let ingredients = try context.fetch(Ingredient.fetchRequest())
-            let model = RecipeCreationModel(backgroundContext: context)
-            
-            let viewController = RecipeCreationViewController(model: model, ingredients: ingredients)
-            navigationController?.pushViewController(viewController, animated: true)
-        } catch {
-            print(error)
-        }
+        let model = RecipeCreationCoreDataModel()
+        let viewController = RecipeCreationViewController(model: model)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }

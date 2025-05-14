@@ -81,3 +81,16 @@ extension RecipeListViewController: DiffableDataSourceFetchDelegate {
     }
     
 }
+
+// MARK: - UITableViewDelegate
+
+extension RecipeListViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let recipe = viewModel.fetchedResultController.object(at: indexPath) as? Recipe else { return }
+        
+        let viewController = RecipeViewController(recipe: recipe)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}

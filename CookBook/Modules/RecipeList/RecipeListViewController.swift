@@ -93,4 +93,25 @@ extension RecipeListViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] _, _, _ in
+            guard let object = viewModel.fetchedResultController.object(at: indexPath) as? NSManagedObject else { return }
+            delete(id: object.objectID)
+        }
+        deleteAction.image = UIImage(systemName: "trash")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    private func delete(id: NSManagedObjectID) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let context = CoreDataStack.shared.newBackgroundContext
+            context.perform {
+                let object = context.object(with: id)
+                context.delete(object)
+                
+                try? CoreDataStack.shared.saveContext(with: context)
+            }
+        }
+    }
+    
 }

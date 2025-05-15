@@ -27,62 +27,48 @@ final class RecipeCreationTests: XCTestCase {
     }
     
     // MARK: - Tests
-
-    func testAddTitle() throws {
-        let title = "First recipe"
-        
-        model.addTitle(title)
-        
-        XCTAssert(model.recipe.title == title, "title in recipe is wrong")
-    }
-    
-    func testAddIngredients() throws {
-        let ingredient = Ingredient(context: context)
-        ingredient.name = "tomato"
-        ingredient.form = .piece
-        ingredient.category = .vegetables
-        
-        let ingredients = Set([ingredient])
-        model.addIngredients(ingredients)
-        
-        XCTAssert(model.recipe.ingredients.count == ingredients.count, "ingredients didn't set")
-    }
     
     func testCookStepCreation() throws {
         let title = "first step"
-        let subtitle = "subtitle of step"
+        let step = model.nextCookStep()
         
-        let step = model.addStep(title: title, subtitle: subtitle, tip: nil)
-        
-        XCTAssert(step.title == title, "title in step is wrong")
-        XCTAssert(step.subtitle == subtitle, "subtitle in step is wrong")
-        XCTAssertNil(step.tip, "tip in step is wrong")
+        XCTAssert(step.number == 1, "step number is wrong")
     }
     
-    func testAddCookStep() throws {
-        let title = "first step"
-        let subtitle = "subtitle of step"
-        let tip = "this is a little tip"
+    func testMultipleCookStepCreation() throws {
+        let title = "step"
         
-        model.addStep(title: title, subtitle: subtitle, tip: tip)
+        let step = model.nextCookStep()
+        step.title = title
         
-        XCTAssert(model.recipe.instruction.count == 1, "step didn't set")
+        model.recipe.addToInstruction(step)
+        
+        XCTAssert(step.number == 1, "first step number is wrong")
+        
+        let nextStep = model.nextCookStep()
+        nextStep.title = title
+        
+        model.recipe.addToInstruction(nextStep)
+        
+        XCTAssert(nextStep.number == 2, "second step number is wrong")
     }
     
     func testSaveRecipe() throws {
         let recipeTitle = "Second recipe"
         
         let stepTitle = "First step"
-        let stepSubtitle = "First step subtitle"
         
         let ingredient = Ingredient(context: context)
         ingredient.name = "egg"
         ingredient.category = .dairy
         ingredient.form = .piece
         
-        model.addTitle(recipeTitle)
-        model.addIngredients(Set([ingredient]))
-        model.addStep(title: stepTitle, subtitle: stepSubtitle, tip: nil)
+        let step = model.nextCookStep()
+        step.title = stepTitle
+        
+        model.recipe.title = recipeTitle
+        model.recipe.addToIngredients(ingredient)
+        model.recipe.addToInstruction(step)
         
         let mainContext = CoreDataStack.shared.mainContext
         let recipesBefore = try mainContext.fetch(Recipe.fetchRequest()).count

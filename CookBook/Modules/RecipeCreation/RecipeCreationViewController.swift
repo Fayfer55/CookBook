@@ -9,7 +9,7 @@ import UIKit
 
 final class RecipeCreationViewController: UIViewController {
     
-    private let viewModel: RecipeCreatable
+    private let viewModel: RecipeCreationInterface
     
     // MARK: - UI Elements
     
@@ -55,7 +55,7 @@ final class RecipeCreationViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    init(model: RecipeCreatable) {
+    init(model: RecipeCreationInterface) {
         viewModel = model
         super.init(nibName: nil, bundle: nil)
     }
@@ -132,8 +132,8 @@ final class RecipeCreationViewController: UIViewController {
     
     @objc
     private func createRecipe() {
-        viewModel.addTitle(nameTextField.text ?? "Some recipe")
-        viewModel.addIngredients(ingredientsCollection.selectedIngredients)
+        viewModel.recipe.title = nameTextField.text ?? "Some recipe"
+        viewModel.recipe.addToIngredients(NSSet(set: ingredientsCollection.selectedIngredients))
         
         do {
             try viewModel.saveRecipe()
@@ -149,7 +149,10 @@ final class RecipeCreationViewController: UIViewController {
         
         let addAction = UIAlertAction(title: "Add", style: .default) { [unowned self] _ in
             guard let textField = alertController.textFields?.first, let text = textField.text, !text.isEmpty else { return }
-            let step = viewModel.addStep(title: text, subtitle: nil, tip: nil)
+            let step = viewModel.nextCookStep()
+            step.title = text
+            
+            viewModel.recipe.addToInstruction(step)
             self.instructionViewController.add(step: step)
         }
         

@@ -7,7 +7,7 @@
 
 import CoreData
 
-struct RecipeCreationCoreDataModel: RecipeCreatable {
+struct RecipeCreationCoreDataModel: RecipeCreationInterface {
     
     private(set) var recipe: Recipe
     private let context: NSManagedObjectContext
@@ -25,23 +25,9 @@ struct RecipeCreationCoreDataModel: RecipeCreatable {
         (try? context.fetch(Ingredient.fetchRequest())) ?? []
     }
     
-    func addTitle(_ title: String) {
-        recipe.title = title
-    }
-    
-    func addIngredients(_ ingredients: Set<Ingredient>) {
-        recipe.addToIngredients(NSSet(set: ingredients))
-    }
-    
-    @discardableResult
-    func addStep(title: String, subtitle: String?, tip: String?) -> CookStep {
+    func nextCookStep() -> CookStep {
         let step = CookStep(context: context)
         step.number = Int16(recipe.instruction.count + 1)
-        step.title = title
-        step.subtitle = subtitle
-        step.tip = tip
-        
-        recipe.addToInstruction(step)
         return step
     }
     

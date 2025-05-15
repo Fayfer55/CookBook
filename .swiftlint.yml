@@ -1,7 +1,6 @@
 excluded:
   - Pods
 disabled_rules:
-  - identifier_name
   - nesting
   - function_parameter_count
   - trailing_whitespace

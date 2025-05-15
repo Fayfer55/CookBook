@@ -94,6 +94,8 @@
 				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationInterface.swift,
+				RecipeList/RecipeListCoreDataModel.swift,
+				RecipeList/RecipeListInterface.swift,
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
 		};
@@ -132,6 +134,8 @@
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationInterface.swift,
 				RecipeCreation/RecipeCreationViewController.swift,
+				RecipeList/RecipeListCoreDataModel.swift,
+				RecipeList/RecipeListInterface.swift,
 				RecipeList/RecipeListTableCell.swift,
 				RecipeList/RecipeListViewController.swift,
 			);

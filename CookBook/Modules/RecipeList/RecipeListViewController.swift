@@ -14,12 +14,11 @@ final class RecipeListViewController: UITableViewController {
     
     private var onDataSourceChange: ((Bool) -> Void)?
     
-    private let viewModel: CoreDataFetchModel<Recipe>
+    private let viewModel: RecipeListInterface
         
-    private lazy var dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, objectID in
-        guard let recipe = try? self.viewModel.context.existingObject(with: objectID) as? Recipe else {
-            fatalError("Recipe should exist") // TODO: - handle error
-        }
+    private lazy var dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, _ in
+        guard let recipe = viewModel.recipe(for: indexPath) else { return UITableViewCell() }
+        
         let cell: RecipeListTableCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configure(with: recipe.title, subtitle: recipe.subtitle)
         return cell
@@ -27,7 +26,7 @@ final class RecipeListViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    init(model: CoreDataFetchModel<Recipe>) {
+    init(model: RecipeListInterface) {
         viewModel = model
         super.init(style: .grouped)
     }
@@ -87,7 +86,7 @@ extension RecipeListViewController: DiffableDataSourceFetchDelegate {
 extension RecipeListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = viewModel.fetchedResultController.object(at: indexPath) as? Recipe else { return }
+        guard let recipe = viewModel.recipe(for: indexPath) else { return }
         
         let viewController = RecipeViewController(recipe: recipe)
         navigationController?.pushViewController(viewController, animated: true)
@@ -95,23 +94,10 @@ extension RecipeListViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] _, _, _ in
-            guard let object = viewModel.fetchedResultController.object(at: indexPath) as? NSManagedObject else { return }
-            delete(id: object.objectID)
+            self.viewModel.deleteRecipe(at: indexPath)
         }
         deleteAction.image = UIImage(systemName: "trash")
         return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
-    
-    private func delete(id: NSManagedObjectID) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let context = CoreDataStack.shared.newBackgroundContext
-            context.perform {
-                let object = context.object(with: id)
-                context.delete(object)
-                
-                try? CoreDataStack.shared.saveContext(with: context)
-            }
-        }
     }
     
 }

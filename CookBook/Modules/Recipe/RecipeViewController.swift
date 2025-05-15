@@ -11,6 +11,8 @@ final class RecipeViewController: UIViewController {
     
     let recipe: Recipe
     
+    // MARK: - UI Elements
+    
     private lazy var ingredientsLabel: UILabel = {
         let label = UILabel()
         label.text = "Ingredients"

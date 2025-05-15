@@ -18,7 +18,6 @@ final class AppEnvironment: Sendable {
     let disableAnalytics: Bool
 
     private init() {
-        let arguments = ProcessInfo.processInfo.arguments
         let environment = ProcessInfo.processInfo.environment
 
         isTestEnvironment = environment["TEST"] == "1"

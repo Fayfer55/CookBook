@@ -44,6 +44,7 @@
 		C5D57CDC2DCA816000841BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D57CDB2DCA816000841BAA /* Constants.swift */; };
 		C5D57CDD2DCA816000841BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D57CDB2DCA816000841BAA /* Constants.swift */; };
 		C5D57CDE2DCA816000841BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D57CDB2DCA816000841BAA /* Constants.swift */; };
+		C5FAAB3F2DD60AFF004475E9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C5FAAB3E2DD60AFF004475E9 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,10 +92,10 @@
 		C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				CookStepList/InstructionListViewController.swift,
 				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationInterface.swift,
-				RecipeList/RecipeListCoreDataModel.swift,
 				RecipeList/RecipeListInterface.swift,
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
@@ -134,7 +135,6 @@
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationInterface.swift,
 				RecipeCreation/RecipeCreationViewController.swift,
-				RecipeList/RecipeListCoreDataModel.swift,
 				RecipeList/RecipeListInterface.swift,
 				RecipeList/RecipeListTableCell.swift,
 				RecipeList/RecipeListViewController.swift,
@@ -166,10 +166,10 @@
 			);
 			target = C526355C2D92DC900026B907 /* CookBookUITests */;
 		};
-		C5FAAAB32DD36281004475E9 /* Exceptions for "CoreDataFetchModel" folder in "CookBookTests" target */ = {
+		C5FAAAB32DD36281004475E9 /* Exceptions for "ManagedObjectModel" folder in "CookBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				CoreDataFetchModel.swift,
+				ManagedObjectModel.swift,
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
 		};
@@ -218,12 +218,12 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */ = {
+		C5FAA9D32DD34183004475E9 /* ManagedObjectModel */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C5FAAAB32DD36281004475E9 /* Exceptions for "CoreDataFetchModel" folder in "CookBookTests" target */,
+				C5FAAAB32DD36281004475E9 /* Exceptions for "ManagedObjectModel" folder in "CookBookTests" target */,
 			);
-			path = CoreDataFetchModel;
+			path = ManagedObjectModel;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -241,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FAAB3F2DD60AFF004475E9 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +340,7 @@
 		C57F7FEA2DC1FB2B008E9AE6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */,
+				C5FAA9D32DD34183004475E9 /* ManagedObjectModel */,
 				C57F7FED2DC1FCE8008E9AE6 /* Grid */,
 			);
 			path = Base;
@@ -382,7 +383,7 @@
 				C50E8BC12DB7C2580072A2F6 /* Protocols */,
 				C533B8E82D9EBCE700B7897E /* Views */,
 				C533B8EB2D9EBE1700B7897E /* Modules */,
-				C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */,
+				C5FAA9D32DD34183004475E9 /* ManagedObjectModel */,
 			);
 			name = CookBook;
 			packageProductDependencies = (
@@ -410,6 +411,7 @@
 			);
 			name = CookBookTests;
 			packageProductDependencies = (
+				C5FAAB3E2DD60AFF004475E9 /* SnapKit */,
 			);
 			productName = CookBookTests;
 			productReference = C52635532D92DC900026B907 /* CookBookTests.xctest */;
@@ -430,7 +432,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C52635602D92DC900026B907 /* CookBookUITests */,
-				C5FAA9D32DD34183004475E9 /* CoreDataFetchModel */,
+				C5FAA9D32DD34183004475E9 /* ManagedObjectModel */,
 			);
 			name = CookBookUITests;
 			packageProductDependencies = (
@@ -930,6 +932,11 @@
 			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 		C5D57CD92DCA76AD00841BAA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C50DDBD02D9E685F00460522 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		C5FAAB3E2DD60AFF004475E9 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C50DDBD02D9E685F00460522 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;

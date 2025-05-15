@@ -21,7 +21,7 @@ final class MainViewController: UIViewController {
     // MARK: - UI Elements
     
     private lazy var recipesListViewController: RecipeListViewController = {
-        let model = RecipeListCoreDataModel(context: context)
+        let model = ManagedObjectModel<Recipe>()
         return RecipeListViewController(model: model)
     }()
     

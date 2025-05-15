@@ -14,10 +14,10 @@ final class RecipeListViewController: UITableViewController {
     
     private var onDataSourceChange: ((Bool) -> Void)?
     
-    private let viewModel: RecipeListInterface
+    private let viewModel: ManagedObjectModel<Recipe>
         
     private lazy var dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, _ in
-        guard let recipe = viewModel.recipe(for: indexPath) else { return UITableViewCell() }
+        guard let recipe = viewModel.object(for: indexPath) else { return UITableViewCell() }
         
         let cell: RecipeListTableCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configure(with: recipe.title, subtitle: recipe.subtitle)
@@ -26,7 +26,7 @@ final class RecipeListViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    init(model: RecipeListInterface) {
+    init(model: ManagedObjectModel<Recipe>) {
         viewModel = model
         super.init(style: .grouped)
     }
@@ -39,7 +39,7 @@ final class RecipeListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.delegate = self
+        viewModel.fetchedResultController.delegate = self
         
         setupParentView()
     }
@@ -69,10 +69,12 @@ extension RecipeListViewController {
 
 // MARK: - DiffableDataSourceFetchDelegate
 
-extension RecipeListViewController: DiffableDataSourceFetchDelegate {
+extension RecipeListViewController: NSFetchedResultsControllerDelegate {
     
     nonisolated
-    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<String, NSManagedObjectID>) {
+    func controller(_ controller: NSFetchedResultsController<any NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
+        let snapshot = snapshot as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        
         DispatchQueue.main.async { [weak self] in
             self?.onDataSourceChange?(snapshot.itemIdentifiers.isEmpty)
             self?.dataSource.apply(snapshot)
@@ -86,7 +88,7 @@ extension RecipeListViewController: DiffableDataSourceFetchDelegate {
 extension RecipeListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = viewModel.recipe(for: indexPath) else { return }
+        guard let recipe = viewModel.object(for: indexPath) else { return }
         
         let viewController = RecipeViewController(recipe: recipe)
         navigationController?.pushViewController(viewController, animated: true)
@@ -94,7 +96,7 @@ extension RecipeListViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] _, _, _ in
-            self.viewModel.deleteRecipe(at: indexPath)
+            self.viewModel.deleteObject(at: indexPath)
         }
         deleteAction.image = UIImage(systemName: "trash")
         return UISwipeActionsConfiguration(actions: [deleteAction])

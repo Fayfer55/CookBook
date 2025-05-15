@@ -1,5 +1,5 @@
 //
-//  CoreDataFetchModelTests.swift
+//  ManagedObjectModelTests.swift
 //  CookBookTests
 //
 //  Created by Kirill Faifer on 06.05.2025.
@@ -9,20 +9,20 @@ import XCTest
 import CoreData
 @testable import CookBook
 
-final class CoreDataFetchModelTests: XCTestCase {
+final class ManagedObjectModelTests: XCTestCase {
     
     private var context: NSManagedObjectContext!
-    private var model: CoreDataFetchModel<Recipe>!
+    private var model: ManagedObjectModel<Recipe>!
     private var expectation: XCTestExpectation!
-    private var snapshot: NSDiffableDataSourceSnapshot<String, NSManagedObjectID>?
     
     // MARK: - Lifecycle
     
     override func setUpWithError() throws {
         context = CoreDataStack.shared.mainContext
-        model = CoreDataFetchModel<Recipe>(context: context)
-        expectation = XCTestExpectation(description: "Background task completes")
-        model.delegate = self
+        model = ManagedObjectModel<Recipe>()
+        expectation = XCTestExpectation(description: "Background task completed")
+        
+        model.fetchedResultController.delegate = self
         
         try super.setUpWithError()
     }
@@ -31,7 +31,6 @@ final class CoreDataFetchModelTests: XCTestCase {
         model = nil
         context = nil
         expectation = nil
-        snapshot = nil
         
         try super.tearDownWithError()
     }
@@ -46,27 +45,27 @@ final class CoreDataFetchModelTests: XCTestCase {
         XCTAssert(fetchedObjects.isEmpty, "objects contains something")
     }
     
-    func testEmptySnapshot() throws {
-        try model.fetchRequest()
-        
-        wait(for: [expectation], timeout: 2)
-        
-        let snapshot = try XCTUnwrap(snapshot, "Snapshot is nil")
-        XCTAssert(snapshot.itemIdentifiers.isEmpty, "items exists")
-    }
-    
-    func testOneItemSnapshot() throws {
-        try model.fetchRequest()
-        
-        wait(for: [expectation], timeout: 2)
-        
-        let firstSnapshot = try XCTUnwrap(snapshot, "Snapshot is nil")
-        XCTAssert(firstSnapshot.itemIdentifiers.isEmpty, "items exists")
-        
+    func testObjectForIndexPath() throws {
+        let indexPath = IndexPath(row: 0, section: 0)
         try createRecipe()
         
-        let secondSnapshot = try XCTUnwrap(snapshot, "Snapshot is nil")
-        XCTAssert(secondSnapshot.itemIdentifiers.count == 1, "items count is wrong")
+        try model.fetchRequest()
+        
+        XCTAssertNotNil(model.object(for: indexPath), "recipe doesn't exist")
+    }
+    
+    func testDeleteObjectForIndexPath() throws {
+        let indexPath = IndexPath(row: 0, section: 0)
+        try createRecipe()
+        
+        try model.fetchRequest()
+        
+        XCTAssert(model.fetchedResultController.fetchedObjects?.count == 1, "recipe didn't create")
+        
+        model.deleteObject(at: indexPath)
+        
+        wait(for: [expectation], timeout: 2)
+        XCTAssert(model.fetchedResultController.fetchedObjects?.count == 0, "recipe didn't delete")
     }
     
     // MARK: - Private Helpers
@@ -92,12 +91,12 @@ final class CoreDataFetchModelTests: XCTestCase {
 
 }
 
-// MARK: - DiffableDataSourceFetchDelegate
+// MARK: - NSFetchedResultsControllerDelegate
 
-extension CoreDataFetchModelTests: DiffableDataSourceFetchDelegate {
+extension ManagedObjectModelTests: NSFetchedResultsControllerDelegate {
     
-    func dataSource(didChangeWith snapshot: NSDiffableDataSourceSnapshot<String, NSManagedObjectID>) {
-        self.snapshot = snapshot
+    func controller(_ controller: NSFetchedResultsController<any NSFetchRequestResult>, didChangeContentWith snapshot: NSDiffableDataSourceSnapshotReference) {
+        guard snapshot.itemIdentifiers.count == .zero else { return }
         expectation.fulfill()
     }
     

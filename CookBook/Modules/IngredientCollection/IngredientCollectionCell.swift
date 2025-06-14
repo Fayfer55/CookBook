@@ -9,6 +9,8 @@ import UIKit
 
 final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
     
+    static let kCornerRadius: CGFloat = 16
+    
     // MARK: - UI Elements
     
     private lazy var titleLabel: UILabel = {
@@ -46,7 +48,7 @@ final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
         
         var backgroundConfiguration: UIBackgroundConfiguration = .clear()
         backgroundConfiguration.backgroundColor = .systemBlue
-        backgroundConfiguration.cornerRadius = 16
+        backgroundConfiguration.cornerRadius = IngredientCollectionCell.kCornerRadius
         self.backgroundConfiguration = backgroundConfiguration
     }
     

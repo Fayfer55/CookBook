@@ -16,6 +16,8 @@ final class IngredientCollectionViewController: GridViewController {
         return Set(selectedIndexPaths.map { ingredients[$0.item] })
     }
     
+    private var selectedFrame: CGRect?
+    
     // MARK: - Lifecycle
     
     init() {
@@ -41,6 +43,34 @@ final class IngredientCollectionViewController: GridViewController {
     private func setupParentView() {
         gridView.register(cellType: IngredientCollectionCell.self)
         gridView.allowsMultipleSelection = true
+        gridView.addGestureRecognizer(longPressRecognizer())
+    }
+    
+    private func longPressRecognizer() -> UILongPressGestureRecognizer {
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(recognizer:)))
+        longPressRecognizer.minimumPressDuration = 0.5
+        longPressRecognizer.delaysTouchesBegan = true
+        return longPressRecognizer
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    private func longPressAction(recognizer: UILongPressGestureRecognizer) {
+        let location = recognizer.location(in: gridView)
+        guard let indexPath = gridView.indexPathForItem(at: location) else {
+            print("There is no indexPath")
+            return
+        }
+        
+        let cell: IngredientCollectionCell = gridView.cellForItem(at: indexPath)
+        selectedFrame = gridView.convert(cell.frame, to: navigationController?.view ?? view.superview)
+        guard recognizer.state == .began else { return }
+        
+        let previewViewController = IngredientPreviewViewController()
+        previewViewController.modalPresentationStyle = .custom
+        previewViewController.transitioningDelegate = self
+        present(previewViewController, animated: true)
     }
 
 }
@@ -81,6 +111,25 @@ extension IngredientCollectionViewController: UICollectionViewDelegateFlowLayout
         size.width += safeArea.leading + safeArea.trailing
         size.height += safeArea.top + safeArea.bottom
         return size
+    }
+    
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+
+extension IngredientCollectionViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
+        GenieAnimator(isPresenting: true)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> (any UIViewControllerAnimatedTransitioning)? {
+        GenieAnimator(isPresenting: false)
+    }
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        guard let selectedFrame else { return nil }
+        return FramePresentationController(frame: selectedFrame, presentedViewController: presented, presenting: presenting)
     }
     
 }

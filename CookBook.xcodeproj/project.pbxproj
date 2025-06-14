@@ -133,6 +133,7 @@
 				CookStepList/InstructionListViewController.swift,
 				IngredientCollection/IngredientCollectionCell.swift,
 				IngredientCollection/IngredientCollectionViewController.swift,
+				IngredientPreview/IngredientPreviewViewController.swift,
 				Main/MainViewController.swift,
 				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,

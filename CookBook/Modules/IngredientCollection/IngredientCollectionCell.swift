@@ -16,6 +16,7 @@ final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = .white
         return label
     }()
     

@@ -11,9 +11,9 @@ final class FramePresentationController: UIPresentationController {
     
     private let frame: CGRect
     
-    private lazy var dragGestureRecognizer: UIPanGestureRecognizer = {
-        let recognizer = UIPanGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(dragGestureAction))
+    private lazy var swipeGestureRecognizer: UISwipeGestureRecognizer = {
+        let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+        recognizer.direction = .down
         return recognizer
     }()
     
@@ -35,8 +35,6 @@ final class FramePresentationController: UIPresentationController {
     override var frameOfPresentedViewInContainerView: CGRect {
         let size = CGSize(width: 150, height: 150)
         let spacing: CGFloat = 16
-        print(frame)
-    
         let origin = CGPoint(x: frame.midX - size.width / 2, y: frame.minY - size.height - spacing)
         
         return CGRect(origin: origin, size: size)
@@ -69,7 +67,7 @@ final class FramePresentationController: UIPresentationController {
     private func makeSystemThinMaterialBackground() {
         systemThinMaterialView.frame = containerView?.bounds ?? .zero
         systemThinMaterialView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        systemThinMaterialView.addGestureRecognizer(dragGestureRecognizer)
+        systemThinMaterialView.addGestureRecognizer(swipeGestureRecognizer)
 
         containerView?.addSubview(systemThinMaterialView)
         containerView?.bringSubviewToFront(presentedView ?? systemThinMaterialView)
@@ -78,12 +76,10 @@ final class FramePresentationController: UIPresentationController {
     // MARK: - Actions
     
     @objc
-    private func dragGestureAction(_ panGestureRecognizer: UIPanGestureRecognizer) {
-        let translation = panGestureRecognizer.translation(in: containerView)
-        
-        systemThinMaterialView.layer.opacity -= Float(translation.y) / 1000
-        
-        guard systemThinMaterialView.layer.opacity < .zero || systemThinMaterialView.layer.opacity.isZero else { return }
+    private func swipeAction(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
+        UIView.animate(withDuration: 0.3) {
+            self.systemThinMaterialView.alpha = 0
+        }
         presentedViewController.dismiss(animated: true)
     }
 

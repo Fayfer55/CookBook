@@ -52,16 +52,6 @@ final class FramePresentationController: UIPresentationController {
         presentedView?.frame = frameOfPresentedViewInContainerView
         
         makeSystemThinMaterialBackground()
-        let containerPath = UIBezierPath(rect: containerView?.frame ?? .zero)
-        let holePath = UIBezierPath(roundedRect: frame, cornerRadius: IngredientCollectionCell.kCornerRadius)
-        
-        containerPath.append(holePath)
-        
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = containerPath.cgPath
-        maskLayer.fillRule = .evenOdd
-
-        systemThinMaterialView.layer.mask = maskLayer
     }
     
     private func makeSystemThinMaterialBackground() {

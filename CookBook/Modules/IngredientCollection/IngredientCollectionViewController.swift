@@ -16,7 +16,12 @@ final class IngredientCollectionViewController: GridViewController {
         return Set(selectedIndexPaths.map { ingredients[$0.item] })
     }
     
-    private var selectedFrame: CGRect?
+    private var selectedCell: IngredientCollectionCell?
+    
+    private lazy var animator: UIViewPropertyAnimator = {
+        let animator = UIViewPropertyAnimator(duration: 0.33, curve: .easeInOut)
+        return animator
+    }()
     
     // MARK: - Lifecycle
     
@@ -43,34 +48,76 @@ final class IngredientCollectionViewController: GridViewController {
     private func setupParentView() {
         gridView.register(cellType: IngredientCollectionCell.self)
         gridView.allowsMultipleSelection = true
-        gridView.addGestureRecognizer(longPressRecognizer())
+        gridView.addGestureRecognizer(timeLongPressGestureRecognizer())
     }
     
-    private func longPressRecognizer() -> UILongPressGestureRecognizer {
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(recognizer:)))
-        longPressRecognizer.minimumPressDuration = 0.5
-        longPressRecognizer.delaysTouchesBegan = true
-        return longPressRecognizer
+    private func timeLongPressGestureRecognizer() -> TimeLongPressGestureRecognizer {
+        let recognizer = TimeLongPressGestureRecognizer(target: self, action: #selector(longPressAction(recognizer:)))
+        recognizer.minimumPressDuration = 0.1
+        recognizer.targetDuration = 0.5
+        return recognizer
     }
     
     // MARK: - Actions
     
     @objc
-    private func longPressAction(recognizer: UILongPressGestureRecognizer) {
+    private func longPressAction(recognizer: TimeLongPressGestureRecognizer) {
         let location = recognizer.location(in: gridView)
-        guard let indexPath = gridView.indexPathForItem(at: location) else {
-            print("There is no indexPath")
-            return
-        }
-        
+        guard let indexPath = gridView.indexPathForItem(at: location) else { return }
         let cell: IngredientCollectionCell = gridView.cellForItem(at: indexPath)
-        selectedFrame = gridView.convert(cell.frame, to: navigationController?.view ?? view.superview)
-        guard recognizer.state == .began else { return }
         
-        let previewViewController = IngredientPreviewViewController()
+        switch recognizer.state {
+            case .possible, .changed, .recognized:
+                break
+            case .began:
+                selectedCell = cell
+                configureAnimator()
+                animator.startAnimation()
+            case .ended:
+                animator.stopAnimation(false)
+                animator.finishAnimation(at: .end)
+            case .cancelled:
+                selectedCell = nil
+                animator.stopAnimation(false)
+                animator.finishAnimation(at: .start)
+            case .failed:
+                selectedCell = nil
+                animator.stopAnimation(false)
+                animator.finishAnimation(at: .start)
+            @unknown default:
+                break
+        }
+    }
+    
+    private func showIngredientPreview(selectedCell: IngredientCollectionCell) {
+        guard let ingredient = selectedCell.ingredient else { return }
+        
+        let previewViewController = IngredientPreviewViewController(ingredient: ingredient)
         previewViewController.modalPresentationStyle = .custom
         previewViewController.transitioningDelegate = self
+        
+        if let snapshotView = selectedCell.snapshotView(afterScreenUpdates: true) {
+//            previewViewController.view.addSubview(snapshotView)
+//            snapshotView.snp.makeConstraints { make in
+//                
+//            }
+        }
         present(previewViewController, animated: true)
+    }
+    
+    private func configureAnimator() {
+        animator.addAnimations { [weak self] in
+            guard let self, let selectedCell else { return }
+            selectedCell.transform = .init(scaleX: 0.9, y: 0.9)
+        }
+        animator.addCompletion { [weak self] position in
+            guard position == .end, let selectedCell = self?.selectedCell else { return }
+            
+            HapticHelper.tap(style: .soft)
+            self?.showIngredientPreview(selectedCell: selectedCell)
+            self?.selectedCell?.transform = .identity
+            self?.selectedCell = nil
+        }
     }
 
 }
@@ -128,7 +175,8 @@ extension IngredientCollectionViewController: UIViewControllerTransitioningDeleg
     }
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        guard let selectedFrame else { return nil }
+        guard let selectedCell else { return nil }
+        let selectedFrame = gridView.convert(selectedCell.frame, to: navigationController?.view ?? view.superview)
         return FramePresentationController(frame: selectedFrame, presentedViewController: presented, presenting: presenting)
     }
     

@@ -10,6 +10,7 @@ import UIKit
 final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
     
     static let kCornerRadius: CGFloat = 16
+    private(set) var ingredient: Ingredient?
     
     // MARK: - UI Elements
     
@@ -72,6 +73,7 @@ final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
 extension IngredientCollectionCell {
     
     func configure(with ingredient: Ingredient) {
+        self.ingredient = ingredient
         titleLabel.text = ingredient.name
     }
     

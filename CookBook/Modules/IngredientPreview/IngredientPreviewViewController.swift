@@ -9,7 +9,9 @@ import UIKit
 
 final class IngredientPreviewViewController: UIViewController {
     
-    // MARK: - UIElements
+    private let ingredient: Ingredient
+    
+    // MARK: - Lifecycle
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView(image: .tomato)
@@ -17,7 +19,15 @@ final class IngredientPreviewViewController: UIViewController {
         return view
     }()
     
-    // MARK: - Lifecycle
+    init(ingredient: Ingredient) {
+        self.ingredient = ingredient
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

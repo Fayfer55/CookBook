@@ -32,6 +32,9 @@
 		C5596BC82DFF086F0080B035 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BC72DFF086F0080B035 /* HapticHelper.swift */; };
 		C5596BC92DFF086F0080B035 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BC72DFF086F0080B035 /* HapticHelper.swift */; };
 		C5596BCA2DFF086F0080B035 /* HapticHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BC72DFF086F0080B035 /* HapticHelper.swift */; };
+		C5596BD32DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
+		C5596BD42DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
+		C5596BD52DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
 		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
 		C5D57CBE2DCA753500841BAA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
@@ -90,6 +93,7 @@
 		C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C5596B3D2DFD6B4F0080B035 /* FramePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramePresentationController.swift; sourceTree = "<group>"; };
 		C5596BC72DFF086F0080B035 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
+		C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLongPressGestureRecognizer.swift; sourceTree = "<group>"; };
 		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		C5D57CDB2DCA816000841BAA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -366,9 +370,18 @@
 			path = Haptic;
 			sourceTree = "<group>";
 		};
+		C5596BD12DFF48A90080B035 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */,
+			);
+			path = Gestures;
+			sourceTree = "<group>";
+		};
 		C57F7FEA2DC1FB2B008E9AE6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C5596BD12DFF48A90080B035 /* Gestures */,
 				C5596BC62DFF08540080B035 /* Haptic */,
 				C5596B402DFD6C800080B035 /* Animator */,
 				C5596B3C2DFD6B150080B035 /* FramePresentationController */,
@@ -565,6 +578,7 @@
 				C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */,
 				C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */,
 				C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */,
+				C5596BD32DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */,
 				C5596B3E2DFD6B4F0080B035 /* FramePresentationController.swift in Sources */,
 				C5D57CDC2DCA816000841BAA /* Constants.swift in Sources */,
 				C50DDBCB2D9DBE0200460522 /* CookBook.xcdatamodeld in Sources */,
@@ -582,6 +596,7 @@
 				C53DF1B62DC3AD7200FDB470 /* CodingUserInfoKey+Extensions.swift in Sources */,
 				C53DF1A62DC3AC7A00FDB470 /* AppEnvironment.swift in Sources */,
 				C53DF1B52DC3AD3300FDB470 /* JSONDecoder+Init.swift in Sources */,
+				C5596BD52DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */,
 				C5596BCA2DFF086F0080B035 /* HapticHelper.swift in Sources */,
 				C53DF1A42DC3AB6C00FDB470 /* CookBook.xcdatamodeld in Sources */,
 				C5D57CDD2DCA816000841BAA /* Constants.swift in Sources */,
@@ -600,6 +615,7 @@
 				C5D57CBF2DCA754300841BAA /* AppEnvironment.swift in Sources */,
 				C5596BC82DFF086F0080B035 /* HapticHelper.swift in Sources */,
 				C5596B3F2DFD6B4F0080B035 /* FramePresentationController.swift in Sources */,
+				C5596BD42DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */,
 				C5D57CD62DCA768400841BAA /* GridViewController.swift in Sources */,
 				C5D57CCD2DCA75E300841BAA /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C5D57CCA2DCA75CF00841BAA /* UITableView+ClassIdentifiable.swift in Sources */,

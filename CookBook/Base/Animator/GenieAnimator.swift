@@ -21,30 +21,30 @@ final class GenieAnimator: NSObject {
 
 extension GenieAnimator: UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(using transitionContext: (any UIViewControllerContextTransitioning)?) -> TimeInterval { 0.5 }
+    func transitionDuration(using transitionContext: (any UIViewControllerContextTransitioning)?) -> TimeInterval { 0.3 }
     
     func animateTransition(using transitionContext: any UIViewControllerContextTransitioning) {
         let container = transitionContext.containerView
 
         if isPresenting {
-            let toVC = transitionContext.viewController(forKey: .to)!
-            let toView = toVC.view!
-            toView.alpha = 0
-            container.addSubview(toView)
+            guard let presentedView = transitionContext.view(forKey: .to) else { return }
+            container.addSubview(presentedView)
+            presentedView.transform = .init(scaleX: 0, y: 0)
+            presentedView.anchorPoint = .init(x: 0.5, y: 1)
             
             UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-                toView.alpha = 1
+                presentedView.transform = .identity
             }) { _ in
                 transitionContext.completeTransition(true)
             }
-            
         } else {
-            let fromView = transitionContext.view(forKey: .from)!
+            guard let dismissView = transitionContext.view(forKey: .from) else { return }
+            dismissView.anchorPoint = CGPoint(x: 0.5, y: 1)
             
             UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-                fromView.alpha = 0
+                dismissView.transform = .init(scaleX: 0.001, y: 0.001)
             }) { _ in
-                fromView.removeFromSuperview()
+                dismissView.removeFromSuperview()
                 transitionContext.completeTransition(true)
             }
         }

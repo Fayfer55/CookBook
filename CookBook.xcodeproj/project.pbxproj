@@ -143,6 +143,7 @@
 				IngredientCollection/IngredientCollectionViewController.swift,
 				IngredientPreview/IngredientPreviewViewController.swift,
 				Main/MainViewController.swift,
+				Pantry/PantryViewController.swift,
 				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationInterface.swift,

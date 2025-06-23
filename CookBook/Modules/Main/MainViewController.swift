@@ -38,6 +38,8 @@ final class MainViewController: UIViewController {
     init(context: NSManagedObjectContext) {
         self.context = context
         super.init(nibName: nil, bundle: nil)
+        
+        configureTabBarItem()
     }
     
     @available(*, unavailable)
@@ -57,6 +59,12 @@ final class MainViewController: UIViewController {
     }
     
     // MARK: - Layout
+    
+    private func configureTabBarItem() {
+        let item = UITabBarItem()
+        item.image = UIImage(systemName: "book.pages")
+        tabBarItem = item
+    }
     
     private func configureNavigationBar() {
         let button = UIBarButtonItem(

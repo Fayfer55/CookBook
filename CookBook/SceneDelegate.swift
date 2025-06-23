@@ -16,17 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
-        let viewController = MainViewController(context: CoreDataStack.shared.mainContext)
-        let navigationController = UINavigationController(rootViewController: viewController)
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground()
-        appearance.backgroundColor = .systemBackground
-
-        navigationController.navigationBar.standardAppearance = appearance
-        navigationController.navigationBar.scrollEdgeAppearance = appearance
-        
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
+        configure(window: window)
         self.window = window
     }
 
@@ -63,6 +53,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } catch {
             print(error)
         }
+    }
+    
+    // MARK: - Private Helpers
+    
+    private func configure(window: UIWindow) {
+        let tabBarController = UITabBarController()
+        let navigationControllers = [
+            MainViewController(context: CoreDataStack.shared.mainContext),
+            PantryViewController()
+        ].map(navigationController(for:))
+        
+        tabBarController.setViewControllers(navigationControllers, animated: false)
+        window.rootViewController = tabBarController
+        window.makeKeyAndVisible()
+    }
+    
+    private func navigationController(for viewController: UIViewController) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundColor = .systemBackground
+
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
+        return navigationController
     }
 
 }

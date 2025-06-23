@@ -4,6 +4,7 @@ disabled_rules:
   - nesting
   - function_parameter_count
   - trailing_whitespace
+  - switch_case_alignment
 
 opt_in_rules:
   - control_statement

@@ -37,6 +37,8 @@
 		C5596BD52DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
 		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
+		C5C176DF2E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
+		C5C176E02E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
 		C5D57CBE2DCA753500841BAA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
 		C5D57CBF2DCA754300841BAA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
 		C5D57CC92DCA75C100841BAA /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
@@ -96,6 +98,7 @@
 		C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLongPressGestureRecognizer.swift; sourceTree = "<group>"; };
 		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionCell.swift; sourceTree = "<group>"; };
 		C5D57CDB2DCA816000841BAA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -382,6 +385,7 @@
 		C57F7FEA2DC1FB2B008E9AE6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C5C176DD2E099A8F00919BD9 /* Cells */,
 				C5596BD12DFF48A90080B035 /* Gestures */,
 				C5596BC62DFF08540080B035 /* Haptic */,
 				C5596B402DFD6C800080B035 /* Animator */,
@@ -399,6 +403,14 @@
 				C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */,
 			);
 			path = Grid;
+			sourceTree = "<group>";
+		};
+		C5C176DD2E099A8F00919BD9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C5D57CD82DCA76AD00841BAA /* Frameworks */ = {
@@ -571,6 +583,7 @@
 				C5200FE82DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift in Sources */,
 				C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */,
 				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
+				C5C176E02E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */,
 				C53DF1542DC21A9900FDB470 /* String+Static.swift in Sources */,
 				C5596BC92DFF086F0080B035 /* HapticHelper.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
@@ -617,6 +630,7 @@
 				C5596BC82DFF086F0080B035 /* HapticHelper.swift in Sources */,
 				C5596B3F2DFD6B4F0080B035 /* FramePresentationController.swift in Sources */,
 				C5596BD42DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */,
+				C5C176DF2E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */,
 				C5D57CD62DCA768400841BAA /* GridViewController.swift in Sources */,
 				C5D57CCD2DCA75E300841BAA /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C5D57CCA2DCA75CF00841BAA /* UITableView+ClassIdentifiable.swift in Sources */,

@@ -39,6 +39,10 @@
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
 		C5C176DF2E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
 		C5C176E02E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
+		C5C1776E2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */; };
+		C5C1776F2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */; };
+		C5C177712E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */; };
+		C5C177722E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */; };
 		C5D57CBE2DCA753500841BAA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
 		C5D57CBF2DCA754300841BAA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
 		C5D57CC92DCA75C100841BAA /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
@@ -99,6 +103,8 @@
 		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionCell.swift; sourceTree = "<group>"; };
+		C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonReusableView.swift; sourceTree = "<group>"; };
+		C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSize+Static.swift"; sourceTree = "<group>"; };
 		C5D57CDB2DCA816000841BAA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -324,6 +330,7 @@
 			children = (
 				C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */,
 				C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */,
+				C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -385,13 +392,14 @@
 		C57F7FEA2DC1FB2B008E9AE6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C5C176DD2E099A8F00919BD9 /* Cells */,
-				C5596BD12DFF48A90080B035 /* Gestures */,
-				C5596BC62DFF08540080B035 /* Haptic */,
 				C5596B402DFD6C800080B035 /* Animator */,
+				C5C176DD2E099A8F00919BD9 /* Cells */,
 				C5596B3C2DFD6B150080B035 /* FramePresentationController */,
-				C5FAA9D32DD34183004475E9 /* ManagedObjectModel */,
+				C5596BD12DFF48A90080B035 /* Gestures */,
 				C57F7FED2DC1FCE8008E9AE6 /* Grid */,
+				C5596BC62DFF08540080B035 /* Haptic */,
+				C5FAA9D32DD34183004475E9 /* ManagedObjectModel */,
+				C5C1776C2E0A682C00919BD9 /* ReusableViews */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -411,6 +419,14 @@
 				C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C5C1776C2E0A682C00919BD9 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 		C5D57CD82DCA76AD00841BAA /* Frameworks */ = {
@@ -588,6 +604,8 @@
 				C5596BC92DFF086F0080B035 /* HapticHelper.swift in Sources */,
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C53DF19D2DC382C900FDB470 /* CoreDataStack.swift in Sources */,
+				C5C177712E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift in Sources */,
+				C5C1776F2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */,
 				C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */,
@@ -635,7 +653,9 @@
 				C5D57CCD2DCA75E300841BAA /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C5D57CCA2DCA75CF00841BAA /* UITableView+ClassIdentifiable.swift in Sources */,
 				C5D57CCB2DCA75CF00841BAA /* UICollectionView+ClassIdentifiable.swift in Sources */,
+				C5C1776E2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */,
 				C5D57CDE2DCA816000841BAA /* Constants.swift in Sources */,
+				C5C177722E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -84,4 +84,3 @@ final class TimeLongPressGestureRecognizer: UIGestureRecognizer {
         invalidateTimers()
     }
 }
-

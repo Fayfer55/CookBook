@@ -96,7 +96,7 @@ final class IngredientCollectionViewController: GridViewController {
         previewViewController.modalPresentationStyle = .custom
         previewViewController.transitioningDelegate = self
         
-        if let snapshotView = selectedCell.snapshotView(afterScreenUpdates: true) {
+        if let _ = selectedCell.snapshotView(afterScreenUpdates: true) {
 //            previewViewController.view.addSubview(snapshotView)
 //            snapshotView.snp.makeConstraints { make in
 //                

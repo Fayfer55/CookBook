@@ -32,20 +32,20 @@ extension GenieAnimator: UIViewControllerAnimatedTransitioning {
             presentedView.transform = .init(scaleX: 0, y: 0)
             presentedView.anchorPoint = .init(x: 0.5, y: 1)
             
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
                 presentedView.transform = .identity
-            }) { _ in
-                transitionContext.completeTransition(true)
+            } completion: { completed in
+                transitionContext.completeTransition(completed)
             }
         } else {
             guard let dismissView = transitionContext.view(forKey: .from) else { return }
             dismissView.anchorPoint = CGPoint(x: 0.5, y: 1)
             
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
                 dismissView.transform = .init(scaleX: 0.001, y: 0.001)
-            }) { _ in
+            } completion: { completed in
                 dismissView.removeFromSuperview()
-                transitionContext.completeTransition(true)
+                transitionContext.completeTransition(completed)
             }
         }
     }

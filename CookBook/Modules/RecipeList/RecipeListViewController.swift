@@ -14,11 +14,27 @@ final class RecipeListViewController: UITableViewController {
     
     private var onDataSourceChange: ((Bool) -> Void)?
     
-    private let viewModel: ManagedObjectModel<Recipe>
+    private let storage: CoreDataContextStorage
+    
+    private let request: NSFetchRequest<Recipe> = {
+        let request = Recipe.fetchRequest()
+        request.sortDescriptors = []
+        return request
+    }()
+    
+    private lazy var fetchedResultController: NSFetchedResultsController = {
+        let controller = NSFetchedResultsController(
+            fetchRequest: request,
+            managedObjectContext: storage.context,
+            sectionNameKeyPath: nil,
+            cacheName: nil
+        )
+        controller.delegate = self
+        return controller
+    }()
         
     private lazy var dataSource = UITableViewDiffableDataSource<String, NSManagedObjectID>(tableView: tableView) { [unowned self] tableView, indexPath, _ in
-        guard let recipe = viewModel.object(for: indexPath) else { return UITableViewCell() }
-        
+        let recipe = fetchedResultController.object(at: indexPath)
         let cell: RecipeListTableCell = tableView.dequeueReusableCell(for: indexPath)
         cell.configure(with: recipe.title, subtitle: recipe.subtitle)
         return cell
@@ -26,8 +42,8 @@ final class RecipeListViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    init(model: ManagedObjectModel<Recipe>) {
-        viewModel = model
+    init(storage: CoreDataContextStorage) {
+        self.storage = storage
         super.init(style: .grouped)
     }
     
@@ -38,8 +54,6 @@ final class RecipeListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.fetchedResultController.delegate = self
         
         setupParentView()
     }
@@ -59,7 +73,8 @@ extension RecipeListViewController {
     func requestRecipes(onCompletion: @escaping (Bool) -> Void) {
         do {
             onDataSourceChange = onCompletion
-            try viewModel.fetchRequest()
+            
+            try fetchedResultController.performFetch()
         } catch {
             print(error)
         }
@@ -88,15 +103,15 @@ extension RecipeListViewController: NSFetchedResultsControllerDelegate {
 extension RecipeListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let recipe = viewModel.object(for: indexPath) else { return }
-        
+        let recipe = fetchedResultController.object(at: indexPath)
         let viewController = RecipeViewController(recipe: recipe)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [unowned self] _, _, _ in
-            self.viewModel.deleteObject(at: indexPath)
+            let id = fetchedResultController.object(at: indexPath).objectID
+            storage.delete(objectID: id)
         }
         deleteAction.image = UIImage(systemName: "trash")
         return UISwipeActionsConfiguration(actions: [deleteAction])

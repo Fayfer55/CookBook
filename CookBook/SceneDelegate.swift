@@ -60,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func configure(window: UIWindow) {
         let tabBarController = UITabBarController()
         let navigationControllers = [
-            MainViewController(context: CoreDataStack.shared.mainContext),
+            MainViewController(),
             PantryViewController()
         ].map(navigationController(for:))
         

@@ -16,14 +16,11 @@ final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let context: NSManagedObjectContext
+    private let storage = CoreDataContextStorageObject(type: .mainQueue, label: "coreData.contextStorage.MainViewController.queue")
     
     // MARK: - UI Elements
     
-    private lazy var recipesListViewController: RecipeListViewController = {
-        let model = ManagedObjectModel<Recipe>()
-        return RecipeListViewController(model: model)
-    }()
+    private lazy var recipesListViewController = RecipeListViewController(storage: storage)
     
     private lazy var emptyLabel: UILabel = {
         let label = UILabel()
@@ -35,8 +32,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    init(context: NSManagedObjectContext) {
-        self.context = context
+    init() {
         super.init(nibName: nil, bundle: nil)
         
         configureTabBarItem()

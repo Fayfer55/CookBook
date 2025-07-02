@@ -192,7 +192,7 @@
 		C5FAAAB32DD36281004475E9 /* Exceptions for "ManagedObjectModel" folder in "CookBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ManagedObjectModel.swift,
+				CoreDataContextStorage.swift,
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
 		};

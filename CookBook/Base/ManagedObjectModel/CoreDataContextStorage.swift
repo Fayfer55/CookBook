@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol CoreDataContextStorage {
+protocol CoreDataContextStorage: AnyObject {
     var context: NSManagedObjectContext! { get }
     
     func fetch<T: NSManagedObject>() throws -> [T]
@@ -45,7 +45,7 @@ final class CoreDataContextStorageObject: NSObject, CoreDataContextStorage, @unc
                 return try fetchObjects()
             default:
                 return try queue.sync { [unowned self] in
-                    try context.performAndWait {
+                    try context.performAndWait { [unowned self] in
                         try fetchObjects()
                     }
                 }
@@ -57,7 +57,7 @@ final class CoreDataContextStorageObject: NSObject, CoreDataContextStorage, @unc
             case .mainQueue:
                 return context.object(with: id) as? T
             default:
-                return queue.sync {
+                return queue.sync { [unowned self] in
                     context.performAndWait { [unowned self] in
                         context.object(with: id) as? T
                     }
@@ -73,7 +73,7 @@ final class CoreDataContextStorageObject: NSObject, CoreDataContextStorage, @unc
                 try? CoreDataStack.shared.saveContext()
             default:
                 queue.async { [unowned self] in
-                    context.perform {
+                    context.perform { [unowned self] in
                         let object = self.context.object(with: objectID)
                         self.context.delete(object)
                         try? CoreDataStack.shared.saveContext(with: self.context)

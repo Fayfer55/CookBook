@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit.UICollectionViewCompositionalLayout
+import CoreData.NSManagedObjectID
 
-enum CreateRecipeSection: Int {
+enum RecipeCreationSection: Int {
     case name, ingredients, cookSteps
     
     @MainActor
@@ -59,6 +60,6 @@ enum CreateRecipeSection: Int {
     }
 }
 
-enum CreateRecipeItem {
-    case textField, button, label
+enum RecipeCreationItem: Hashable {
+    case textField, button(NSManagedObjectID), label
 }

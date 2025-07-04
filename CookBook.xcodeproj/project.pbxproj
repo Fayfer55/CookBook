@@ -154,7 +154,7 @@
 				Main/MainViewController.swift,
 				Pantry/PantryViewController.swift,
 				Recipe/RecipeViewController.swift,
-				RecipeCreation/DataSource/CreateRecipeDataSource.swift,
+				RecipeCreation/DataSource/RecipeCreationDataSource.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
 				RecipeCreation/RecipeCreationInterface.swift,
 				RecipeCreation/RecipeCreationViewController.swift,

@@ -152,12 +152,16 @@ extension IngredientCollectionViewController {
 extension IngredientCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let title = ingredients[indexPath.item].name
-        let safeArea = NSDirectionalEdgeInsets.safeArea
-        var size = title.size(withAttributes: [.font: UIFont.systemFont(ofSize: 17)])
-        size.width += safeArea.leading + safeArea.trailing
-        size.height += safeArea.top + safeArea.bottom
-        return size
+        let ingredient = ingredients[indexPath.item]
+        let cell = IngredientCollectionCell(frame: .zero)
+        cell.configure(with: ingredient)
+        cell.setNeedsLayout()
+        
+        return cell.systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: .fittingSizeLevel
+        )
     }
     
 }

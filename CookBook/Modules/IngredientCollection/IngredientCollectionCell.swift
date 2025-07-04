@@ -46,7 +46,7 @@ final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
     // MARK: - Layout
     
     private func setupParentView() {
-        directionalLayoutMargins = .safeArea
+        contentView.directionalLayoutMargins = .safeArea
         
         var backgroundConfiguration: UIBackgroundConfiguration = .clear()
         backgroundConfiguration.backgroundColor = .systemBlue

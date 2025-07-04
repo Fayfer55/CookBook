@@ -9,12 +9,7 @@ import UIKit
 
 final class IngredientCollectionViewController: GridViewController {
     
-    private(set) var ingredients = [Ingredient]()
-    
-    var selectedIngredients: Set<Ingredient> {
-        guard let selectedIndexPaths = gridView.indexPathsForSelectedItems else { return [] }
-        return Set(selectedIndexPaths.map { ingredients[$0.item] })
-    }
+    private(set) var items = [Ingredient]()
     
     private var selectedCell: IngredientCollectionCell?
     
@@ -127,7 +122,7 @@ final class IngredientCollectionViewController: GridViewController {
 extension IngredientCollectionViewController {
     
     func set(ingredients: [Ingredient]) {
-        self.ingredients = ingredients
+        items = ingredients
         gridView.reloadData()
     }
     
@@ -137,11 +132,11 @@ extension IngredientCollectionViewController {
 
 extension IngredientCollectionViewController {
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { ingredients.count }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { items.count }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: IngredientCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.configure(with: ingredients[indexPath.item])
+        cell.configure(with: items[indexPath.item])
         return cell
     }
     
@@ -152,7 +147,7 @@ extension IngredientCollectionViewController {
 extension IngredientCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let ingredient = ingredients[indexPath.item]
+        let ingredient = items[indexPath.item]
         let cell = IngredientCollectionCell(frame: .zero)
         cell.configure(with: ingredient)
         cell.setNeedsLayout()

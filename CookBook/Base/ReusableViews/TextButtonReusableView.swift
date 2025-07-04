@@ -16,7 +16,6 @@ class TextButtonReusableView: UICollectionReusableView {
     lazy var button: UIButton = {
         let button = UIButton()
         button.setContentHuggingPriority(.required, for: .horizontal)
-//        button.setContentCompressionResistancePriority(.required, for: .horizontal)
         return button
     }()
     
@@ -43,13 +42,13 @@ class TextButtonReusableView: UICollectionReusableView {
     
     // MARK: - Layout
     
-    private func setupSubviews() {
+    func setupSubviews() {
         addSubview(stackView)
         
         makeConstraints()
     }
     
-    private func makeConstraints() {
+    func makeConstraints() {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

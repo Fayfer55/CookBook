@@ -7,7 +7,15 @@
 
 import UIKit
 
+@MainActor
+protocol IngredientSelectionDelegate: AnyObject {
+    func didSelectIngredient(_ ingredient: Ingredient)
+    func didDelectIngredient(_ ingredient: Ingredient)
+}
+
 final class IngredientCollectionViewController: GridViewController {
+    
+    weak var delegate: IngredientSelectionDelegate?
     
     private(set) var items = [Ingredient]()
     
@@ -138,6 +146,20 @@ extension IngredientCollectionViewController {
         let cell: IngredientCollectionCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.configure(with: items[indexPath.item])
         return cell
+    }
+    
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension IngredientCollectionViewController {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectIngredient(items[indexPath.item])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        delegate?.didDelectIngredient(items[indexPath.item])
     }
     
 }

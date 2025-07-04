@@ -21,8 +21,16 @@ enum CreateRecipeSection: Int {
                 )
             case .ingredients:
                 group = NSCollectionLayoutGroup.horizontal(
-                    layoutSize: .fullWidth(forHeight: 40), subitems: [.init(layoutSize: .fullSize)]
+                    layoutSize: .init(
+                        widthDimension: .estimated(100),
+                        heightDimension: .estimated(50)
+                    ),
+                    subitems: [.init(layoutSize: .init(
+                        widthDimension: .estimated(100),
+                        heightDimension: .estimated(50)
+                    ))]
                 )
+                group.edgeSpacing = .init(leading: .none, top: .fixed(8), trailing: .none, bottom: .fixed(8))
             case .cookSteps:
                 group = NSCollectionLayoutGroup.vertical(
                     layoutSize: .fullWidth(forHeight: 100), subitems: [.init(layoutSize: .fullSize)]
@@ -43,6 +51,7 @@ enum CreateRecipeSection: Int {
                     )
                 ]
                 section.orthogonalScrollingBehavior = .continuous
+                section.interGroupSpacing = 8
             case .cookSteps:
                 break
         }

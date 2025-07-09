@@ -10,7 +10,7 @@ import UIKit
 @MainActor
 protocol IngredientSelectionDelegate: AnyObject {
     func didSelectIngredient(_ ingredient: Ingredient)
-    func didDelectIngredient(_ ingredient: Ingredient)
+    func didDeselectIngredient(_ ingredient: Ingredient)
 }
 
 final class IngredientCollectionViewController: GridViewController {
@@ -159,7 +159,7 @@ extension IngredientCollectionViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        delegate?.didDelectIngredient(items[indexPath.item])
+        delegate?.didDeselectIngredient(items[indexPath.item])
     }
     
 }

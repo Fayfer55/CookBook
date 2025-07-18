@@ -35,6 +35,8 @@
 		C5596BD32DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
 		C5596BD42DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
 		C5596BD52DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */; };
+		C56F861A2E2A6C01005E351C /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F86192E2A6C01005E351C /* UIView+Subviews.swift */; };
+		C56F861B2E2A6C01005E351C /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F86192E2A6C01005E351C /* UIView+Subviews.swift */; };
 		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
 		C5C176DF2E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
@@ -100,6 +102,7 @@
 		C5596B3D2DFD6B4F0080B035 /* FramePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FramePresentationController.swift; sourceTree = "<group>"; };
 		C5596BC72DFF086F0080B035 /* HapticHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticHelper.swift; sourceTree = "<group>"; };
 		C5596BD22DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLongPressGestureRecognizer.swift; sourceTree = "<group>"; };
+		C56F86192E2A6C01005E351C /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionCell.swift; sourceTree = "<group>"; };
@@ -332,6 +335,7 @@
 				C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */,
 				C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */,
 				C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */,
+				C56F86192E2A6C01005E351C /* UIView+Subviews.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -606,6 +610,7 @@
 				C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C53DF19D2DC382C900FDB470 /* CoreDataStack.swift in Sources */,
 				C5C177712E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift in Sources */,
+				C56F861A2E2A6C01005E351C /* UIView+Subviews.swift in Sources */,
 				C5C1776F2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */,
@@ -652,6 +657,7 @@
 				C5C176DF2E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */,
 				C5D57CD62DCA768400841BAA /* GridViewController.swift in Sources */,
 				C5D57CCD2DCA75E300841BAA /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
+				C56F861B2E2A6C01005E351C /* UIView+Subviews.swift in Sources */,
 				C5D57CCA2DCA75CF00841BAA /* UITableView+ClassIdentifiable.swift in Sources */,
 				C5D57CCB2DCA75CF00841BAA /* UICollectionView+ClassIdentifiable.swift in Sources */,
 				C5C1776E2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */,

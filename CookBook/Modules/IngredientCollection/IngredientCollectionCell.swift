@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class IngredientCollectionCell: UICollectionViewCell, ClassIdentifiable {
+final class IngredientCollectionCell: UICollectionViewCell, ReuseIdentifiable {
     
     static let kCornerRadius: CGFloat = 16
     private(set) var ingredient: Ingredient?

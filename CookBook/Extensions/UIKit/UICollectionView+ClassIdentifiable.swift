@@ -9,18 +9,18 @@ import UIKit.UICollectionView
 
 extension UICollectionView {
 
-    func register<T: UICollectionViewCell>(cellType: T.Type) where T: ClassIdentifiable {
+    func register<T: UICollectionViewCell>(cellType: T.Type) where T: ReuseIdentifiable {
         register(cellType.self, forCellWithReuseIdentifier: cellType.reuseId)
     }
     
-    func dequeueReusableCell<T: UICollectionViewCell>(withCellType type: T.Type = T.self, for indexPath: IndexPath) -> T where T: ClassIdentifiable {
+    func dequeueReusableCell<T: UICollectionViewCell>(withCellType type: T.Type = T.self, for indexPath: IndexPath) -> T where T: ReuseIdentifiable {
         guard let cell = dequeueReusableCell(withReuseIdentifier: type.reuseId, for: indexPath) as? T
         else { fatalError(dequeueError(reuseId: type.reuseId)) }
 
         return cell
     }
     
-    func cellForItem<T: UICollectionViewCell>(withCellType type: T.Type = T.self, at indexPath: IndexPath) -> T where T: ClassIdentifiable {
+    func cellForItem<T: UICollectionViewCell>(withCellType type: T.Type = T.self, at indexPath: IndexPath) -> T where T: ReuseIdentifiable {
         guard let cell = cellForItem(at: indexPath) as? T
         else { fatalError(dequeueError(reuseId: type.reuseId)) }
         return cell

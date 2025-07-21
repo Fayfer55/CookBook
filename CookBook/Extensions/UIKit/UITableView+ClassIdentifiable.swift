@@ -1,5 +1,5 @@
 //
-//  UITableView+ClassIdentifiable.swift
+//  UITableView+ReuseIdentifiable.swift
 //  CookBook
 //
 //  Created by Kirill Faifer on 22.04.2025.
@@ -9,25 +9,25 @@ import UIKit.UITableView
 
 extension UITableView {
 
-    func register<T: UITableViewCell>(cellType: T.Type) where T: ClassIdentifiable {
+    func register<T: UITableViewCell>(cellType: T.Type) where T: ReuseIdentifiable {
         register(cellType.self, forCellReuseIdentifier: cellType.reuseId)
     }
 
-    func dequeueReusableCell<T: UITableViewCell>(withCellType type: T.Type = T.self) -> T where T: ClassIdentifiable {
+    func dequeueReusableCell<T: UITableViewCell>(withCellType type: T.Type = T.self) -> T where T: ReuseIdentifiable {
         guard let cell = dequeueReusableCell(withIdentifier: type.reuseId) as? T
         else { fatalError(dequeueError(reuseId: type.reuseId)) }
 
         return cell
     }
 
-    func dequeueReusableCell<T: UITableViewCell>(withCellType type: T.Type = T.self, for indexPath: IndexPath) -> T where T: ClassIdentifiable {
+    func dequeueReusableCell<T: UITableViewCell>(withCellType type: T.Type = T.self, for indexPath: IndexPath) -> T where T: ReuseIdentifiable {
         guard let cell = dequeueReusableCell(withIdentifier: type.reuseId, for: indexPath) as? T
         else { fatalError(dequeueError(reuseId: type.reuseId)) }
 
         return cell
     }
 
-    func cellForRow<T: UITableViewCell>(withCellType type: T.Type = T.self, at indexPath: IndexPath) -> T where T: ClassIdentifiable {
+    func cellForRow<T: UITableViewCell>(withCellType type: T.Type = T.self, at indexPath: IndexPath) -> T where T: ReuseIdentifiable {
         guard let cell = cellForRow(at: indexPath) as? T
         else { fatalError(dequeueError(reuseId: type.reuseId)) }
 
@@ -40,11 +40,11 @@ extension UITableView {
 
 extension UITableView {
 
-    func registerHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type) where T: ClassIdentifiable {
+    func registerHeaderFooterView<T: UITableViewHeaderFooterView>(viewType: T.Type) where T: ReuseIdentifiable {
         register(viewType.self, forHeaderFooterViewReuseIdentifier: viewType.reuseId)
     }
 
-    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withViewType type: T.Type = T.self) -> T where T: ClassIdentifiable {
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withViewType type: T.Type = T.self) -> T where T: ReuseIdentifiable {
         guard let view = dequeueReusableHeaderFooterView(withIdentifier: type.reuseId) as? T
         else { fatalError(dequeueError(reuseId: type.reuseId)) }
 

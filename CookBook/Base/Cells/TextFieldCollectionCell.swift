@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldCollectionCell: UICollectionViewCell, ClassIdentifiable {
+class TextFieldCollectionCell: UICollectionViewCell, ReuseIdentifiable {
     
     lazy var textField = UITextField()
     

@@ -189,9 +189,9 @@
 		C5D57CC12DCA757100841BAA /* Exceptions for "Protocols" folder in "CookBookUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				ClassIdentifiable.swift,
 				DataFetchable.swift,
 				DiffableDataSourceFetchDelegate.swift,
+				ReuseIdentifiable.swift,
 			);
 			target = C526355C2D92DC900026B907 /* CookBookUITests */;
 		};

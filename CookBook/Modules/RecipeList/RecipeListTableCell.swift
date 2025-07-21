@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RecipeListTableCell: UITableViewCell, ClassIdentifiable {
+final class RecipeListTableCell: UITableViewCell, ReuseIdentifiable {
     
     // MARK: - UI Elements
 

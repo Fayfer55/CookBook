@@ -158,6 +158,7 @@
 				CookStepList/InstructionListViewController.swift,
 				IngredientCollection/IngredientCollectionCell.swift,
 				IngredientCollection/IngredientCollectionViewController.swift,
+				IngredientPick/IngredientsPickPresenter.swift,
 				IngredientPreview/IngredientPreviewViewController.swift,
 				Main/MainViewController.swift,
 				Pantry/PantryViewController.swift,

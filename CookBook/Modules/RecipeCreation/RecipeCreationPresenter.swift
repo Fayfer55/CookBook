@@ -11,4 +11,6 @@ struct RecipeCreationPresenter {
     
     unowned let view: RecipeCreationViewController
     
+    let storage = CoreDataContextStorageObject(type: .privateQueue, label: "coreData.contextStorage.RecipeCreation.queue")
+    
 }

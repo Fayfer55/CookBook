@@ -14,10 +14,10 @@
 		C50DDBD22D9E685F00460522 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C50DDBD12D9E685F00460522 /* SnapKit */; };
 		C50E8B382DB66FEA0072A2F6 /* Ingredients.txt in Resources */ = {isa = PBXBuildFile; fileRef = C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */; };
 		C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */; };
-		C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */; };
+		C50E8BC02DB7C2410072A2F6 /* UITableView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8BBF2DB7C2410072A2F6 /* UITableView+ReuseIdentifiable.swift */; };
 		C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */; };
 		C50E8C272DB8E7CB0072A2F6 /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
-		C5200FE82DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */; };
+		C5200FE82DBBEB1C0058F11A /* UICollectionView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE72DBBEB1C0058F11A /* UICollectionView+ReuseIdentifiable.swift */; };
 		C533B8E22D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 		C53DF1542DC21A9900FDB470 /* String+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF1532DC21A9800FDB470 /* String+Static.swift */; };
 		C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
@@ -53,8 +53,8 @@
 		C5D57CBE2DCA753500841BAA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19C2DC382C900FDB470 /* CoreDataStack.swift */; };
 		C5D57CBF2DCA754300841BAA /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF19A2DC3811900FDB470 /* AppEnvironment.swift */; };
 		C5D57CC92DCA75C100841BAA /* JSONDecoder+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */; };
-		C5D57CCA2DCA75CF00841BAA /* UITableView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */; };
-		C5D57CCB2DCA75CF00841BAA /* UICollectionView+ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */; };
+		C5D57CCA2DCA75CF00841BAA /* UITableView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8BBF2DB7C2410072A2F6 /* UITableView+ReuseIdentifiable.swift */; };
+		C5D57CCB2DCA75CF00841BAA /* UICollectionView+ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200FE72DBBEB1C0058F11A /* UICollectionView+ReuseIdentifiable.swift */; };
 		C5D57CCC2DCA75DC00841BAA /* CodingUserInfoKey+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */; };
 		C5D57CCD2DCA75E300841BAA /* NSDirectionalEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C533B8E12D9EBA2B00B7897E /* NSDirectionalEdgeInsets+Extensions.swift */; };
 		C5D57CCE2DCA75EF00841BAA /* String+Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53DF1532DC21A9800FDB470 /* String+Static.swift */; };
@@ -93,10 +93,10 @@
 		C50DDBC92D9DBE0200460522 /* CookBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookBook.xcdatamodel; sourceTree = "<group>"; };
 		C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ingredients.txt; sourceTree = "<group>"; };
 		C50E8B7B2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Extensions.swift"; sourceTree = "<group>"; };
-		C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ClassIdentifiable.swift"; sourceTree = "<group>"; };
+		C50E8BBF2DB7C2410072A2F6 /* UITableView+ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ReuseIdentifiable.swift"; sourceTree = "<group>"; };
 		C50E8C242DB8E76A0072A2F6 /* URL+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Static.swift"; sourceTree = "<group>"; };
 		C50E8C262DB8E7CB0072A2F6 /* JSONDecoder+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Init.swift"; sourceTree = "<group>"; };
-		C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ClassIdentifiable.swift"; sourceTree = "<group>"; };
+		C5200FE72DBBEB1C0058F11A /* UICollectionView+ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReuseIdentifiable.swift"; sourceTree = "<group>"; };
 		C526353A2D92DC8C0026B907 /* CookBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52635532D92DC900026B907 /* CookBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C526355D2D92DC900026B907 /* CookBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,8 +359,8 @@
 		C50E8BBE2DB7C22F0072A2F6 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				C50E8BBF2DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift */,
-				C5200FE72DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift */,
+				C50E8BBF2DB7C2410072A2F6 /* UITableView+ReuseIdentifiable.swift */,
+				C5200FE72DBBEB1C0058F11A /* UICollectionView+ReuseIdentifiable.swift */,
 				C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */,
 				C56F86192E2A6C01005E351C /* UIView+Subviews.swift */,
 			);
@@ -639,7 +639,7 @@
 			files = (
 				C50E8C272DB8E7CB0072A2F6 /* JSONDecoder+Init.swift in Sources */,
 				C5BC3D292E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */,
-				C5200FE82DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift in Sources */,
+				C5200FE82DBBEB1C0058F11A /* UICollectionView+ReuseIdentifiable.swift in Sources */,
 				C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */,
 				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
 				C5C176E02E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */,
@@ -652,7 +652,7 @@
 				C5C1776F2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */,
 				C50DDBCA2D9DBE0200460522 /* AppDelegate.swift in Sources */,
 				C53DF19B2DC3811900FDB470 /* AppEnvironment.swift in Sources */,
-				C50E8BC02DB7C2410072A2F6 /* UITableView+ClassIdentifiable.swift in Sources */,
+				C50E8BC02DB7C2410072A2F6 /* UITableView+ReuseIdentifiable.swift in Sources */,
 				C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */,
 				C5596BD32DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */,
 				C5596B3E2DFD6B4F0080B035 /* FramePresentationController.swift in Sources */,
@@ -700,8 +700,8 @@
 				C5D57CD62DCA768400841BAA /* GridViewController.swift in Sources */,
 				C5D57CCD2DCA75E300841BAA /* NSDirectionalEdgeInsets+Extensions.swift in Sources */,
 				C56F861B2E2A6C01005E351C /* UIView+Subviews.swift in Sources */,
-				C5D57CCA2DCA75CF00841BAA /* UITableView+ClassIdentifiable.swift in Sources */,
-				C5D57CCB2DCA75CF00841BAA /* UICollectionView+ClassIdentifiable.swift in Sources */,
+				C5D57CCA2DCA75CF00841BAA /* UITableView+ReuseIdentifiable.swift in Sources */,
+				C5D57CCB2DCA75CF00841BAA /* UICollectionView+ReuseIdentifiable.swift in Sources */,
 				C5C1776E2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */,
 				C5D57CDE2DCA816000841BAA /* Constants.swift in Sources */,
 				C5C177722E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift in Sources */,

@@ -41,6 +41,9 @@
 		C56F861E2E2A6DA6005E351C /* ContentReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F861C2E2A6DA6005E351C /* ContentReusableView.swift */; };
 		C57F7FEC2DC1FB64008E9AE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */; };
 		C57F7FEF2DC1FD0E008E9AE6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */; };
+		C5BC3D292E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC3D282E65F6DE00DE1EF9 /* StorageFetchingError.swift */; };
+		C5BC3D2A2E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC3D282E65F6DE00DE1EF9 /* StorageFetchingError.swift */; };
+		C5BC3D2B2E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC3D282E65F6DE00DE1EF9 /* StorageFetchingError.swift */; };
 		C5C176DF2E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
 		C5C176E02E099AAB00919BD9 /* TextFieldCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */; };
 		C5C1776E2E0A689800919BD9 /* TextButtonReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */; };
@@ -108,6 +111,7 @@
 		C56F861C2E2A6DA6005E351C /* ContentReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentReusableView.swift; sourceTree = "<group>"; };
 		C57F7FEB2DC1FB64008E9AE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		C5BC3D282E65F6DE00DE1EF9 /* StorageFetchingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFetchingError.swift; sourceTree = "<group>"; };
 		C5C176DE2E099AAB00919BD9 /* TextFieldCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionCell.swift; sourceTree = "<group>"; };
 		C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonReusableView.swift; sourceTree = "<group>"; };
 		C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSize+Static.swift"; sourceTree = "<group>"; };
@@ -164,11 +168,15 @@
 		C5D57CB42DCA74C700841BAA /* Exceptions for "Modules" folder in "CookBookUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ButtonedTextFieldList/ButtonedTextFieldListCell.swift,
+				ButtonedTextFieldList/IngredientsListViewController.swift,
 				CookStepList/InstructionListViewController.swift,
 				IngredientCollection/IngredientCollectionCell.swift,
 				IngredientCollection/IngredientCollectionViewController.swift,
 				IngredientPick/IngredientsPickPresenter.swift,
 				IngredientPreview/IngredientPreviewViewController.swift,
+				IngredientSuggestion/IngredientSuggestionPresenter.swift,
+				IngredientSuggestion/IngredientSuggestionViewController.swift,
 				Main/MainViewController.swift,
 				Pantry/PantryViewController.swift,
 				Recipe/RecipeViewController.swift,
@@ -418,6 +426,7 @@
 			children = (
 				C5596B402DFD6C800080B035 /* Animator */,
 				C5C176DD2E099A8F00919BD9 /* Cells */,
+				C5BC3D272E65F6B000DE1EF9 /* Errors */,
 				C5596B3C2DFD6B150080B035 /* FramePresentationController */,
 				C5596BD12DFF48A90080B035 /* Gestures */,
 				C57F7FED2DC1FCE8008E9AE6 /* Grid */,
@@ -435,6 +444,14 @@
 				C57F7FEE2DC1FD0E008E9AE6 /* GridViewController.swift */,
 			);
 			path = Grid;
+			sourceTree = "<group>";
+		};
+		C5BC3D272E65F6B000DE1EF9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C5BC3D282E65F6DE00DE1EF9 /* StorageFetchingError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		C5C176DD2E099A8F00919BD9 /* Cells */ = {
@@ -621,6 +638,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C50E8C272DB8E7CB0072A2F6 /* JSONDecoder+Init.swift in Sources */,
+				C5BC3D292E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */,
 				C5200FE82DBBEB1C0058F11A /* UICollectionView+ClassIdentifiable.swift in Sources */,
 				C50E8C252DB8E76A0072A2F6 /* URL+Static.swift in Sources */,
 				C50E8B7C2DB6B5B30072A2F6 /* CodingUserInfoKey+Extensions.swift in Sources */,
@@ -657,6 +675,7 @@
 				C53DF1B52DC3AD3300FDB470 /* JSONDecoder+Init.swift in Sources */,
 				C5596BD52DFF48B80080B035 /* TimeLongPressGestureRecognizer.swift in Sources */,
 				C5596BCA2DFF086F0080B035 /* HapticHelper.swift in Sources */,
+				C5BC3D2B2E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */,
 				C53DF1A42DC3AB6C00FDB470 /* CookBook.xcdatamodeld in Sources */,
 				C5D57CDD2DCA816000841BAA /* Constants.swift in Sources */,
 			);
@@ -666,6 +685,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5BC3D2A2E65F6DE00DE1EF9 /* StorageFetchingError.swift in Sources */,
 				C5D57CD72DCA768900841BAA /* GridView.swift in Sources */,
 				C5D57CCF2DCA75EF00841BAA /* String+Static.swift in Sources */,
 				C5D57CBE2DCA753500841BAA /* CoreDataStack.swift in Sources */,

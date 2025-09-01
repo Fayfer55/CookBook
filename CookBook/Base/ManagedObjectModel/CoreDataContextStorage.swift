@@ -11,7 +11,7 @@ import CoreData
 protocol CoreDataContextStorage: AnyObject {
     var context: NSManagedObjectContext! { get }
     
-    func fetch<T: NSManagedObject>() throws -> [T]
+    func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) throws -> [T]
     func object<T: NSManagedObject>(with id: NSManagedObjectID) -> T?
     func delete(objectID: NSManagedObjectID)
 }
@@ -39,14 +39,14 @@ final class CoreDataContextStorageObject: NSObject, CoreDataContextStorage, @unc
     
     // MARK: - Helpers
     
-    func fetch<T: NSManagedObject>() throws -> [T] {
+    func fetch<T: NSManagedObject>(request: NSFetchRequest<T>) throws -> [T] {
         switch type {
             case .mainQueue:
-                return try fetchObjects()
+                return try context.fetch(request)
             default:
                 return try queue.sync { [unowned self] in
                     try context.performAndWait { [unowned self] in
-                        try fetchObjects()
+                        try context.fetch(request)
                     }
                 }
         }
@@ -93,13 +93,6 @@ final class CoreDataContextStorageObject: NSObject, CoreDataContextStorage, @unc
                     context = CoreDataStack.shared.newBackgroundContext
                 }
         }
-    }
-    
-    private func fetchObjects<T: NSManagedObject>() throws -> [T] {
-        guard let objects = try context.fetch(T.fetchRequest()) as? [T] else {
-            throw DecodingError.typeMismatch([T].self, .init(codingPath: [], debugDescription: "Can't cast array of fetched objects to \([T].self)"))
-        }
-        return objects
     }
     
 }

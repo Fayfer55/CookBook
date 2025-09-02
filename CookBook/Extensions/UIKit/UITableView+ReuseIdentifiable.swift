@@ -33,6 +33,11 @@ extension UITableView {
 
         return cell
     }
+    
+    func cellForPoint<T: UITableViewCell>(withCellType type: T.Type = T.self, at point: CGPoint) -> T? where T: ReuseIdentifiable {
+        guard let indexPath = indexPathForRow(at: point) else { return nil }
+        return cellForRow(at: indexPath) as? T
+    }
 
 }
 

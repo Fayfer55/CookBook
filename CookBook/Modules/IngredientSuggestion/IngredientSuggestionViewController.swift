@@ -67,14 +67,23 @@ final class IngredientSuggestionViewController: UIViewController {
     func searchIngredient(for prompt: String) {
         do {
             let ingredientName = try presenter.searchIngredient(prompt: prompt)
-            let attributedString = NSMutableAttributedString(string: ingredientName)
-            let suffix = String(ingredientName.suffix(ingredientName.count - prompt.count))
-            let range = (ingredientName as NSString).range(of: suffix)
-            attributedString.addAttribute(.foregroundColor, value: UIColor.systemGray, range: range)
-            ingredientButton.setAttributedTitle(attributedString, for: .normal)
+            updateButtonTitle(text: ingredientName, prompt: prompt)
         } catch {
-            // TODO: - handle error
+            ingredientButton.setAttributedTitle(nil, for: .normal)
         }
+    }
+    
+    func searchedIngredient() -> Ingredient? {
+        presenter.searchedIngredient
+    }
+    
+    private func updateButtonTitle(text: String, prompt: String) {
+        let attributedString = NSMutableAttributedString(string: text)
+        let location = prompt.count
+        let lenght = text.count - location
+        let range = NSRange(location: location, length: lenght)
+        attributedString.addAttribute(.foregroundColor, value: UIColor.systemGray, range: range)
+        ingredientButton.setAttributedTitle(attributedString, for: .normal)
     }
 
 }

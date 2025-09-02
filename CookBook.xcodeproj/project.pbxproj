@@ -122,6 +122,7 @@
 		C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ButtonedTextFieldList/IngredientsListPresenter.swift,
 				CookStepList/InstructionListViewController.swift,
 				Recipe/RecipeViewController.swift,
 				RecipeCreation/RecipeCreationCoreDataModel.swift,
@@ -169,6 +170,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				ButtonedTextFieldList/ButtonedTextFieldListCell.swift,
+				ButtonedTextFieldList/IngredientsListPresenter.swift,
 				ButtonedTextFieldList/IngredientsListViewController.swift,
 				CookStepList/InstructionListViewController.swift,
 				IngredientCollection/IngredientCollectionCell.swift,

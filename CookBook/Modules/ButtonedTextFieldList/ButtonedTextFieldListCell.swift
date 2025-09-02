@@ -20,12 +20,15 @@ class ButtonedTextFieldListCell: UITableViewCell, ReuseIdentifiable {
         
         setupParentView()
         setupSubviews()
+        makeConstraints()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Layout
     
     func setupParentView() {
         contentView.directionalLayoutMargins = .safeArea
@@ -34,14 +37,19 @@ class ButtonedTextFieldListCell: UITableViewCell, ReuseIdentifiable {
     
     func setupSubviews() {
         contentView.addSubview(textField)
-        
-        makeConstraints()
     }
     
     func makeConstraints() {
         textField.snp.makeConstraints {
             $0.edges.equalTo(contentView.layoutMarginsGuide)
         }
+    }
+    
+    // MARK: - Helpers
+    
+    func makeButton(text: String) {
+        textField.text = text
+        textField.becomeButton()
     }
 
 }

@@ -17,7 +17,7 @@ final class IngredientSuggestionPresenter {
     private let request: NSFetchRequest<Ingredient> = {
         let request = Ingredient.fetchRequest()
         request.sortDescriptors = []
-        request.fetchLimit = 3
+        request.fetchLimit = 1
         return request
     }()
     

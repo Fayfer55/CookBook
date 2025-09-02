@@ -30,11 +30,15 @@ final class IngredientSuggestionPresenter {
     func searchIngredient(prompt: String) throws -> String {
         request.predicate = NSPredicate(format: "name BEGINSWITH[c] %@", prompt)
         
-        let ingredients = try storage.fetch(request: request)
-        
-        guard let ingredient = ingredients.first else { throw StorageFetchingError.notFound }
-        searchedIngredient = ingredient
-        return ingredient.name
+        do {
+            let ingredients = try storage.fetch(request: request)
+            guard let ingredient = ingredients.first else { throw StorageFetchingError.notFound }
+            searchedIngredient = ingredient
+            return ingredient.name
+        } catch {
+            searchedIngredient = nil
+            throw error
+        }
     }
     
 }

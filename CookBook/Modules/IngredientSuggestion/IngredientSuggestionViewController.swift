@@ -6,18 +6,24 @@
 //
 
 import UIKit
+import CoreData.NSManagedObjectID
 
 final class IngredientSuggestionViewController: UIViewController {
     
-    var ingredientDidSelect: ((Ingredient) -> Void)?
+    var isSuggestionExist: Bool {
+        presenter.suggestion != nil
+    }
+    
+    var suggestionID: NSManagedObjectID? {
+        presenter.suggestion?.objectID
+    }
     
     private var presenter: IngredientSuggestionPresenter
     
     // MARK: - UI Elements
     
-    private lazy var ingredientButton: UIButton = {
+    lazy var ingredientButton: UIButton = {
         let button = UIButton()
-        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
         button.titleLabel?.font = .systemFont(ofSize: 17)
         return button
     }()
@@ -54,36 +60,28 @@ final class IngredientSuggestionViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
-    
-    @objc
-    private func buttonDidTap(_ button: UIButton) {
-        guard let ingredient = presenter.searchedIngredient else { return }
-        ingredientDidSelect?(ingredient)
-    }
-    
     // MARK: - Helpers
     
-    func searchIngredient(for prompt: String) {
-        do {
-            let ingredientName = try presenter.searchIngredient(prompt: prompt)
-            updateButtonTitle(text: ingredientName, prompt: prompt)
-        } catch {
-            ingredientButton.setAttributedTitle(nil, for: .normal)
-        }
+    func searchIngredient(prompt: String) {
+        presenter.searchIngredient(prompt: prompt)
+        updateButtonTitle(text: presenter.suggestion?.name, prompt: prompt)
     }
     
-    func searchedIngredient() -> Ingredient? {
-        presenter.searchedIngredient
+    // MARK: - Private Helpers
+    
+    private func updateButtonTitle(text: String?, prompt: String) {
+        let attributedString = attributedString(text: text, prompt: prompt)
+        ingredientButton.setAttributedTitle(attributedString, for: .normal)
     }
     
-    private func updateButtonTitle(text: String, prompt: String) {
+    private func attributedString(text: String?, prompt: String) -> NSAttributedString? {
+        guard let text else { return nil }
         let attributedString = NSMutableAttributedString(string: text)
         let location = prompt.count
         let lenght = text.count - location
         let range = NSRange(location: location, length: lenght)
         attributedString.addAttribute(.foregroundColor, value: UIColor.systemGray, range: range)
-        ingredientButton.setAttributedTitle(attributedString, for: .normal)
+        return attributedString
     }
 
 }

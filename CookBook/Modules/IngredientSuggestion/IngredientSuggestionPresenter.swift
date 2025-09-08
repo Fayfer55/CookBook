@@ -10,7 +10,7 @@ import CoreData
 
 final class IngredientSuggestionPresenter {
     
-    private(set) var searchedIngredient: Ingredient?
+    private(set) var suggestion: Ingredient?
     
     private let storage: CoreDataContextStorage
     
@@ -21,24 +21,17 @@ final class IngredientSuggestionPresenter {
         return request
     }()
     
+    // MARK: - Init
+    
     init(storage: CoreDataContextStorage) {
         self.storage = storage
     }
     
     // MARK: - Helpers
     
-    func searchIngredient(prompt: String) throws -> String {
+    func searchIngredient(prompt: String) {
         request.predicate = NSPredicate(format: "name BEGINSWITH[c] %@", prompt)
-        
-        do {
-            let ingredients = try storage.fetch(request: request)
-            guard let ingredient = ingredients.first else { throw StorageFetchingError.notFound }
-            searchedIngredient = ingredient
-            return ingredient.name
-        } catch {
-            searchedIngredient = nil
-            throw error
-        }
+        suggestion = try? storage.fetch(request: request).first
     }
     
 }

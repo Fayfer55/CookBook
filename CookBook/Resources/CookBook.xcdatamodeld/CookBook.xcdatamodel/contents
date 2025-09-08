@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788" systemVersion="24D81" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CookStep" representedClassName="CookStep" syncable="YES">
         <attribute name="duration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="number" attributeType="Integer 16" minValueString="1" defaultValueString="1" usesScalarValueType="YES"/>
@@ -9,10 +9,7 @@
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="instruction" inverseEntity="Recipe"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
-        <attribute name="categoryRaw" attributeType="String"/>
-        <attribute name="formRaw" attributeType="String" defaultValueString="piece"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="quantity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quantity" inverseName="ingredient" inverseEntity="Quantity"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -28,7 +25,7 @@
     <entity name="Recipe" representedClassName="Recipe" syncable="YES">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="subtitle" optional="YES" attributeType="String"/>
-        <attribute name="title" attributeType="String" minValueString="0" defaultValueString=""/>
+        <attribute name="title" attributeType="String" minValueString="0"/>
         <relationship name="ingredients" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipe" inverseEntity="Ingredient"/>
         <relationship name="instruction" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="CookStep" inverseName="recipe" inverseEntity="CookStep"/>
         <uniquenessConstraints>

@@ -15,7 +15,7 @@ public final class Ingredient: NSManagedObject, Codable {
     static let entityName = "Ingredient"
 
     private enum CodingKeys: String, CodingKey {
-        case name, category, form, quantity
+        case name
     }
     
 }
@@ -36,9 +36,9 @@ extension Ingredient {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         name = try container.decode(String.self, forKey: .name)
-        category = try container.decode(IngredientCategory.self, forKey: .category)
-        form = try container.decode(IngredientForm.self, forKey: .form)
-        quantity = try container.decodeIfPresent(Quantity.self, forKey: .quantity)
+//        category = try container.decode(IngredientCategory.self, forKey: .category)
+//        form = try container.decode(IngredientForm.self, forKey: .form)
+//        quantity = try container.decodeIfPresent(Quantity.self, forKey: .quantity)
     }
     
 }
@@ -51,9 +51,9 @@ extension Ingredient {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(name, forKey: .name)
-        try container.encode(category, forKey: .category)
-        try container.encode(form, forKey: .form)
-        try container.encodeIfPresent(quantity, forKey: .quantity)
+//        try container.encode(category, forKey: .category)
+//        try container.encode(form, forKey: .form)
+//        try container.encodeIfPresent(quantity, forKey: .quantity)
     }
     
 }

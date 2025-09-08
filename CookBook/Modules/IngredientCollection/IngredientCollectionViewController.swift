@@ -15,16 +15,20 @@ protocol IngredientSelectionDelegate: AnyObject {
 
 final class IngredientCollectionViewController: GridViewController {
     
+    // MARK: - Internal properties
+    
     weak var delegate: IngredientSelectionDelegate?
     
     private(set) var items = [Ingredient]()
     
-    private var selectedCell: IngredientCollectionCell?
+    // MARK: - Private properties
     
     private lazy var animator: UIViewPropertyAnimator = {
         let animator = UIViewPropertyAnimator(duration: 0.33, curve: .easeInOut)
         return animator
     }()
+    
+    private var selectedCell: IngredientCollectionCell?
     
     // MARK: - Lifecycle
     
@@ -99,12 +103,12 @@ final class IngredientCollectionViewController: GridViewController {
         previewViewController.modalPresentationStyle = .custom
         previewViewController.transitioningDelegate = self
         
-        if let _ = selectedCell.snapshotView(afterScreenUpdates: true) {
+//        if let _ = selectedCell.snapshotView(afterScreenUpdates: true) {
 //            previewViewController.view.addSubview(snapshotView)
 //            snapshotView.snp.makeConstraints { make in
 //                
 //            }
-        }
+//        }
         present(previewViewController, animated: true)
     }
     

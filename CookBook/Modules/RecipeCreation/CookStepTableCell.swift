@@ -20,7 +20,7 @@ final class CookStepTableCell: TextFieldTableCell {
     override func setupParentView() {
         super.setupParentView()
         
-        textField.placeholder = "Step"
+        textField.placeholder = RecipeCreationViewController.Localizables.cookStepsTextFieldPlaceholder
         textField.returnKeyType = .next
     }
     

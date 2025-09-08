@@ -13,11 +13,11 @@ enum RecipeCreationSection: Int, CaseIterable {
     var headerTitle: String {
         switch self {
             case .metaData:
-                return "Meta data"
+                return .empty
             case .ingredients:
-                return "Ingredients"
+                return RecipeCreationViewController.Localizables.ingredientsHeaderTitle
             case .cookSteps:
-                return "Cook steps"
+                return RecipeCreationViewController.Localizables.cookStepsHeaderTitle
         }
     }
 }

@@ -22,7 +22,7 @@ final class IngredientTableCell: TextFieldTableCell {
     override func setupParentView() {
         super.setupParentView()
         
-        textField.placeholder = "New ingredient"
+        textField.placeholder = RecipeCreationViewController.Localizables.ingredientsTextFieldPlaceholder
         textField.returnKeyType = .next
         textField.autocorrectionType = .no
     }

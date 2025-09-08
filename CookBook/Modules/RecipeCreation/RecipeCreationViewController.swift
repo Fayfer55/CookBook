@@ -9,13 +9,15 @@ import UIKit
 
 final class RecipeCreationViewController: UITableViewController {
     
+    // MARK: - Properties
+    
     private lazy var presenter = RecipeCreationPresenter()
     
     private lazy var dataSource = UITableViewDiffableDataSource<RecipeCreationSection, RecipeCreationRow>(tableView: tableView) { [unowned self] tableView, indexPath, row in
         switch row {
             case .name:
                 let cell: TextFieldTableCell = tableView.dequeueReusableCell(for: indexPath)
-                cell.textField.placeholder = "Name"
+                cell.textField.placeholder = Localizables.nameTextFieldPlaceholder
                 cell.textField.delegate = self
                 cell.textField.addTarget(self, action: #selector(nameDidChange), for: .editingChanged)
                 return cell
@@ -62,7 +64,7 @@ final class RecipeCreationViewController: UITableViewController {
     // MARK: - Layout
     
     private func setupParentView() {
-        navigationItem.title = "New recipe"
+        navigationItem.title = Localizables.navigationTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "square.and.arrow.down"),
             style: .done,
@@ -222,6 +224,21 @@ extension RecipeCreationViewController: UITextFieldDelegate {
             makeRowAsFirstResponder(index: .zero, in: .ingredients)
         }
         return true
+    }
+    
+}
+
+// MARK: - Localizables
+
+extension RecipeCreationViewController {
+    
+    enum Localizables {
+        static let navigationTitle = String(localized: "recipeCreationVC.navigation.title")
+        static let nameTextFieldPlaceholder = String(localized: "recipeCreationVC.name.textField.placeholder")
+        static let ingredientsHeaderTitle = String(localized: "recipeCreationVC.ingredients.header.title")
+        static let ingredientsTextFieldPlaceholder = String(localized: "recipeCreationVC.ingredients.textField.placeholder")
+        static let cookStepsHeaderTitle = String(localized: "recipeCreationVC.cookSteps.header.title")
+        static let cookStepsTextFieldPlaceholder = String(localized: "recipeCreationVC.cookSteps.textField.placeholder")
     }
     
 }

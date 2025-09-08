@@ -69,6 +69,7 @@
 		C5D57CDC2DCA816000841BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D57CDB2DCA816000841BAA /* Constants.swift */; };
 		C5D57CDD2DCA816000841BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D57CDB2DCA816000841BAA /* Constants.swift */; };
 		C5D57CDE2DCA816000841BAA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D57CDB2DCA816000841BAA /* Constants.swift */; };
+		C5F0606F2E6ED71400CAD0A1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C5F0606E2E6ED71400CAD0A1 /* Localizable.xcstrings */; };
 		C5FAAB3F2DD60AFF004475E9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C5FAAB3E2DD60AFF004475E9 /* SnapKit */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		C5C1776D2E0A689800919BD9 /* TextButtonReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonReusableView.swift; sourceTree = "<group>"; };
 		C5C177702E0A85E800919BD9 /* NSCollectionLayoutSize+Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionLayoutSize+Static.swift"; sourceTree = "<group>"; };
 		C5D57CDB2DCA816000841BAA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C5F0606E2E6ED71400CAD0A1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -347,6 +349,7 @@
 				C50DDBC32D9DBE0200460522 /* Assets.xcassets */,
 				C50DDBC42D9DBE0200460522 /* CookBook.xcdatamodeld */,
 				C50E8B372DB66FEA0072A2F6 /* Ingredients.txt */,
+				C5F0606E2E6ED71400CAD0A1 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 			files = (
 				C50DDBCE2D9DBE0200460522 /* Assets.xcassets in Resources */,
 				C50E8B382DB66FEA0072A2F6 /* Ingredients.txt in Resources */,
+				C5F0606F2E6ED71400CAD0A1 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,6 +876,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 			};
@@ -929,6 +934,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};

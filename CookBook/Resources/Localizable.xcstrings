@@ -1,7 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-
+    "mainVC.emptyRecipes.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There are no recipes yet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пока нет рецептов"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }

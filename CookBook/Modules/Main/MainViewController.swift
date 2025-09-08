@@ -10,10 +10,6 @@ import CoreData
 
 final class MainViewController: UIViewController {
     
-    enum Accessibility {
-        static let emptyLabelIdentifier = "EmptyRecipesLabel"
-    }
-    
     // MARK: - Properties
     
     private let storage = CoreDataContextStorageObject(type: .mainQueue, label: "coreData.contextStorage.MainViewController.queue")
@@ -24,7 +20,7 @@ final class MainViewController: UIViewController {
     
     private lazy var emptyLabel: UILabel = {
         let label = UILabel()
-        label.text = "There are no recipes yet"
+        label.text = Localizables.emptyRecipesTitle
         label.accessibilityIdentifier = Accessibility.emptyLabelIdentifier
         label.isHidden = true
         return label
@@ -104,4 +100,24 @@ final class MainViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
+}
+
+// MARK: - Accessibility
+
+extension MainViewController {
+    
+    enum Accessibility {
+        static let emptyLabelIdentifier = "EmptyRecipesLabel"
+    }
+    
+}
+
+// MARK: - Localizables
+
+extension MainViewController {
+    
+    enum Localizables {
+        static let emptyRecipesTitle = String(localized: "mainVC.emptyRecipes.title")
+    }
+    
 }

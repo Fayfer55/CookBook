@@ -100,8 +100,7 @@ final class MainViewController: UIViewController {
     
     @objc
     private func createRecipeButtonAction() {
-        let model = RecipeCreationCoreDataModel()
-        let viewController = RecipeCreationViewController(model: model)
+        let viewController = RecipeCreationViewController()
         navigationController?.pushViewController(viewController, animated: true)
     }
 

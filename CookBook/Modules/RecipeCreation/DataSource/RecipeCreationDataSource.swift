@@ -7,10 +7,21 @@
 
 import Foundation
 
-enum RecipeCreationSection: Int {
+enum RecipeCreationSection: Int, CaseIterable {
     case metaData, ingredients, cookSteps
+    
+    var headerTitle: String {
+        switch self {
+            case .metaData:
+                return "Meta data"
+            case .ingredients:
+                return "Ingredients"
+            case .cookSteps:
+                return "Cook steps"
+        }
+    }
 }
 
 enum RecipeCreationRow: Hashable {
-    case textField
+    case name, ingredient(UUID), cookStep(UUID)
 }

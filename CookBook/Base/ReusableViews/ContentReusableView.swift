@@ -14,7 +14,6 @@ class ContentReusableView<Content>: UICollectionReusableView where Content: UIVi
     var contentView: Content? {
         didSet {
             removeAllSubviews()
-            let cell = UITableViewCell()
             
             guard let contentView else { return }
             setup(subview: contentView)

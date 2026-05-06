@@ -12,7 +12,6 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, ObservableObject {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        fetchIngredients()
         // Override point for customization after application launch.
         return true
     }
@@ -31,24 +30,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ObservableObject {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-}
-
-// MARK: - Core Data support
-
-extension AppDelegate {
-    
-    private func fetchIngredients() {
-        do {
-            let context = CoreDataStack.shared.newBackgroundContext
-            
-            let jsonDecoder = JSONDecoder(context: context)
-            let data = try Data(contentsOf: URL.ingredientsDirectory)
-            _ = try jsonDecoder.decode(Set<Ingredient>.self, from: data)
-            
-            try CoreDataStack.shared.saveContext(with: context)
-        } catch {
-            print(error)
-        }
-    }
-    
 }

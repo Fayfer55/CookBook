@@ -45,9 +45,7 @@ class GridViewController: UIViewController {
     }
     
     private func makeConstraints() {
-        gridView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        
     }
     
 }

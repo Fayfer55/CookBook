@@ -33,9 +33,7 @@ class TextFieldCollectionCell: UICollectionViewCell, ReuseIdentifiable {
     }
     
     func makeConstrainsts() {
-        textField.snp.makeConstraints { make in
-            make.directionalEdges.equalToSuperview()
-        }
+        
     }
     
 }

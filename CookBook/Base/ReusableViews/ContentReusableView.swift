@@ -29,9 +29,7 @@ class ContentReusableView<Content>: UICollectionReusableView where Content: UIVi
     }
     
     private func makeEdgeConstraints(for subview: UIView) {
-        subview.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        
     }
     
 }

@@ -49,9 +49,7 @@ class TextButtonReusableView: UICollectionReusableView {
     }
     
     func makeConstraints() {
-        stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        
     }
         
 }

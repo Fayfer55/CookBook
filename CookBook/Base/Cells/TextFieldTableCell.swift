@@ -38,9 +38,7 @@ class TextFieldTableCell: UITableViewCell, ReuseIdentifiable {
     }
     
     func makeConstrainsts() {
-        textField.snp.makeConstraints {
-            $0.edges.equalTo(contentView.snp.margins)
-        }
+        
     }
     
 }

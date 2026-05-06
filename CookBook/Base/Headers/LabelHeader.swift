@@ -32,9 +32,7 @@ class LabelHeader: UITableViewHeaderFooterView, ReuseIdentifiable {
     }
     
     func makeConstraints() {
-        label.snp.makeConstraints {
-            $0.edges.equalTo(contentView.snp.margins)
-        }
+        
     }
     
 }

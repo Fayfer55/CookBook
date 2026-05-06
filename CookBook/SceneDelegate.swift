@@ -48,24 +48,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        do {
-            try CoreDataStack.shared.saveContext()
-        } catch {
-            print(error)
-        }
+//        do {
+//            try CoreDataStack.shared.saveContext()
+//        } catch {
+//            print(error)
+//        }
     }
     
     // MARK: - Private Helpers
     
     private func configure(window: UIWindow) {
-        let tabBarController = UITabBarController()
-        let navigationControllers = [
-            MainViewController(),
-            PantryViewController()
-        ].map(navigationController(for:))
-        
-        tabBarController.setViewControllers(navigationControllers, animated: false)
-        window.rootViewController = tabBarController
+//        let viewController =
+//        window.rootViewController = viewController
         window.makeKeyAndVisible()
     }
     

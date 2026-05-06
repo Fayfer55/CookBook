@@ -127,100 +127,37 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				CookStepList/InstructionListViewController.swift,
-				Recipe/RecipeViewController.swift,
-				RecipeCreation/IngredientTableCell.swift,
-				RecipeCreation/RecipeCreationCoreDataModel.swift,
-				RecipeCreation/RecipeCreationInterface.swift,
-				RecipeCreation/RecipeCreationPresenter.swift,
-				RecipeList/RecipeListInterface.swift,
-			);
-			target = C52635522D92DC900026B907 /* CookBookTests */;
-		};
 		C53DF1AB2DC3ACA900FDB470 /* Exceptions for "Entities" folder in "CookBookTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"CookStep/CookStep+CoreDataClass.swift",
-				"CookStep/CookStep+CoreDataProperties.swift",
-				"Ingredient/Ingredient+CoreDataClass.swift",
-				"Ingredient/Ingredient+CoreDataProperties.swift",
-				IngredientCategory.swift,
-				IngredientForm.swift,
-				"Quantity/Quantity+CoreDataClass.swift",
-				"Quantity/Quantity+CoreDataProperties.swift",
-				"Recipe/Recipe+CoreDataClass.swift",
-				"Recipe/Recipe+CoreDataProperties.swift",
+				"CoreData/CookStep/CookStep+CoreDataClass.swift",
+				"CoreData/CookStep/CookStep+CoreDataProperties.swift",
+				"CoreData/Ingredient/Ingredient+CoreDataClass.swift",
+				"CoreData/Ingredient/Ingredient+CoreDataProperties.swift",
+				"CoreData/Quantity/Quantity+CoreDataClass.swift",
+				"CoreData/Quantity/Quantity+CoreDataProperties.swift",
+				"CoreData/Recipe/Recipe+CoreDataClass.swift",
+				"CoreData/Recipe/Recipe+CoreDataProperties.swift",
 			);
 			target = C52635522D92DC900026B907 /* CookBookTests */;
-		};
-		C56B323A2E2E7F1A00823DF7 /* Exceptions for "Views" folder in "CookBookUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ButtonedTextField.swift,
-				FadeView.swift,
-				IngredientButton.swift,
-			);
-			target = C526355C2D92DC900026B907 /* CookBookUITests */;
-		};
-		C5BFD63F2DCA048F006D2F70 /* Exceptions for "Protocols" folder in "CookBookTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				DataFetchable.swift,
-				DiffableDataSourceFetchDelegate.swift,
-			);
-			target = C52635522D92DC900026B907 /* CookBookTests */;
-		};
-		C5D57CB42DCA74C700841BAA /* Exceptions for "Modules" folder in "CookBookUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ButtonedTextFieldList/ButtonedTextFieldListCell.swift,
-				CookStepList/InstructionListViewController.swift,
-				IngredientCollection/IngredientCollectionCell.swift,
-				IngredientCollection/IngredientCollectionViewController.swift,
-				IngredientPreview/IngredientPreviewViewController.swift,
-				IngredientSuggestion/IngredientSuggestionPresenter.swift,
-				IngredientSuggestion/IngredientSuggestionViewController.swift,
-				Main/MainViewController.swift,
-				Pantry/PantryViewController.swift,
-				Recipe/RecipeViewController.swift,
-				RecipeCreation/CookStepTableCell.swift,
-				RecipeCreation/DataSource/CookStepModel.swift,
-				RecipeCreation/DataSource/IngredientModel.swift,
-				RecipeCreation/DataSource/RecipeCreationDataSource.swift,
-				RecipeCreation/IngredientTableCell.swift,
-				RecipeCreation/RecipeCreationCoreDataModel.swift,
-				RecipeCreation/RecipeCreationInterface.swift,
-				RecipeCreation/RecipeCreationViewController.swift,
-				RecipeList/RecipeListInterface.swift,
-				RecipeList/RecipeListTableCell.swift,
-				RecipeList/RecipeListViewController.swift,
-			);
-			target = C526355C2D92DC900026B907 /* CookBookUITests */;
 		};
 		C5D57CBA2DCA751800841BAA /* Exceptions for "Entities" folder in "CookBookUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"CookStep/CookStep+CoreDataClass.swift",
-				"CookStep/CookStep+CoreDataProperties.swift",
-				"Ingredient/Ingredient+CoreDataClass.swift",
-				"Ingredient/Ingredient+CoreDataProperties.swift",
-				IngredientCategory.swift,
-				IngredientForm.swift,
-				"Quantity/Quantity+CoreDataClass.swift",
-				"Quantity/Quantity+CoreDataProperties.swift",
-				"Recipe/Recipe+CoreDataClass.swift",
-				"Recipe/Recipe+CoreDataProperties.swift",
+				"CoreData/CookStep/CookStep+CoreDataClass.swift",
+				"CoreData/CookStep/CookStep+CoreDataProperties.swift",
+				"CoreData/Ingredient/Ingredient+CoreDataClass.swift",
+				"CoreData/Ingredient/Ingredient+CoreDataProperties.swift",
+				"CoreData/Quantity/Quantity+CoreDataClass.swift",
+				"CoreData/Quantity/Quantity+CoreDataProperties.swift",
+				"CoreData/Recipe/Recipe+CoreDataClass.swift",
+				"CoreData/Recipe/Recipe+CoreDataProperties.swift",
 			);
 			target = C526355C2D92DC900026B907 /* CookBookUITests */;
 		};
 		C5D57CC12DCA757100841BAA /* Exceptions for "Protocols" folder in "CookBookUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				DataFetchable.swift,
-				DiffableDataSourceFetchDelegate.swift,
 				ReuseIdentifiable.swift,
 			);
 			target = C526355C2D92DC900026B907 /* CookBookUITests */;
@@ -247,7 +184,6 @@
 		C50E8BC12DB7C2580072A2F6 /* Protocols */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				C5BFD63F2DCA048F006D2F70 /* Exceptions for "Protocols" folder in "CookBookTests" target */,
 				C5D57CC12DCA757100841BAA /* Exceptions for "Protocols" folder in "CookBookUITests" target */,
 			);
 			path = Protocols;
@@ -265,18 +201,11 @@
 		};
 		C533B8E82D9EBCE700B7897E /* Views */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C56B323A2E2E7F1A00823DF7 /* Exceptions for "Views" folder in "CookBookUITests" target */,
-			);
 			path = Views;
 			sourceTree = "<group>";
 		};
 		C533B8EB2D9EBE1700B7897E /* Modules */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C53DF1A82DC3AC8C00FDB470 /* Exceptions for "Modules" folder in "CookBookTests" target */,
-				C5D57CB42DCA74C700841BAA /* Exceptions for "Modules" folder in "CookBookUITests" target */,
-			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
